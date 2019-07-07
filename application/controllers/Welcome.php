@@ -5,6 +5,7 @@ $date 		= date("Y-m-d H:i:s");
 
 class Welcome extends CI_Controller {
 // jjjjjjjjjjjjjjjjjjjjjj
+// uuuuuuuuuuuuuuuuuuuuu
 	function __construct()
 	{
 		parent::__construct();
