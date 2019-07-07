@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $date 		= date("Y-m-d H:i:s");
 
 class Welcome extends CI_Controller {
-// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
+// aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa
 	function __construct()
 	{
 		parent::__construct();
