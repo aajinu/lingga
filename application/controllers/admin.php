@@ -4,7 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $date 		= date("Y-m-d H:i:s");
 
 class admin extends CI_Controller {
-
+// aji elek
 	function __construct()
 	{
 		parent::__construct();
