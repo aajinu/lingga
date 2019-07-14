@@ -24,6 +24,10 @@
         <!-- Codebase framework -->
         <link rel="stylesheet" id="css-main" href="<?= base_url('assets/admin/') ?>css/codebase.min.css">
 
+        <!-- Stylesheets -->
+        <!-- Page JS Plugins CSS -->
+        <link rel="stylesheet" href="<?= base_url('assets/admin/') ?>js/plugins/datatables/dataTables.bootstrap4.min.css">
+
         <!-- You can include a specific file from css/themes/ folder to alter the default color theme of the template. eg: -->
         <!-- <link rel="stylesheet" id="css-theme" href="<?= base_url('assets/admin/') ?>css/themes/flat.min.css"> -->
         <!-- END Stylesheets -->
@@ -114,7 +118,7 @@
                                     <a href="<?= base_url('admin/guru'); ?>"><i class="fa fa-user-secret"></i><span class="sidebar-mini-hide">Guru</span></a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('admin/#'); ?>"><i class="fa fa-users"></i><span class="sidebar-mini-hide">Siswa</span></a>
+                                    <a href="<?= base_url('admin/siswa'); ?>"><i class="fa fa-users"></i><span class="sidebar-mini-hide">Siswa</span></a>
                                 </li>
                                 <li>
                                     <a href="<?= base_url('admin/profil'); ?>"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Profil</span></a>

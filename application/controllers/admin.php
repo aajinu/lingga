@@ -65,6 +65,26 @@ class admin extends CI_Controller {
             $this->load->view('admin/footer',$data);
         }
     }
+
+    public function siswa()
+	{
+        if ($this->session->userdata('status') != "loginadmin"){
+            redirect(base_url('admin'));
+        } else if ($this->session->userdata('status') == "loginadmin"){
+            $id_user = $this->session->userdata('id');
+            $this->db->order_by('id_siswa', 'DESC');
+            $siswa = $this->db->get('siswa')->result();
+            $admin = $this->m_data->select_where(array('id_admin' => $id_user),'admin')->row();
+            $data = array(
+                'siswa' => $siswa,
+                'admin' => $admin,
+                'breadcrumb' => 'Profil',
+            );
+            $this->load->view('admin/header',$data);
+            $this->load->view('admin/siswa',$data);
+            $this->load->view('admin/footer',$data);
+        }
+    }
     
     public function dashboard()
 	{

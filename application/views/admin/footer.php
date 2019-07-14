@@ -20,5 +20,12 @@
         <script src="<?= base_url('assets/admin/') ?>js/core/jquery.countTo.min.js"></script>
         <script src="<?= base_url('assets/admin/') ?>js/core/js.cookie.min.js"></script>
         <script src="<?= base_url('assets/admin/') ?>js/codebase.js"></script>
+
+        <!-- Page JS Plugins -->
+        <script src="<?= base_url('assets/admin/') ?>js/plugins/datatables/jquery.dataTables.min.js"></script>
+        <script src="<?= base_url('assets/admin/') ?>js/plugins/datatables/dataTables.bootstrap4.min.js"></script>
+
+        <!-- Page JS Code -->
+        <script src="<?= base_url('assets/admin/') ?>js/pages/be_tables_datatables.js"></script>
     </body>
 </html>

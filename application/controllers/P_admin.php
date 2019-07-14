@@ -270,6 +270,95 @@ class P_admin extends CI_Controller {
   }
 
 
+
+  public function tambah_siswa()
+  {
+      global $date;
+      $db = get_instance()->db->conn_id;
+
+      // mysqli_real_escape_string anti injeksi
+      $nama          = mysqli_real_escape_string($db, $this->input->post('nama'));
+      $username      = mysqli_real_escape_string($db, $this->input->post('username'));
+      $password      = mysqli_real_escape_string($db, $this->input->post('password'));
+
+      $pass_baru = hash('sha512', $password);
+      $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+
+      $data = array(
+          'nama'        => $nama,
+          'username'    => $username,
+          'password'    => $hash,
+      );
+
+      // ===== input data ke tabel =====             
+      $this->m_data->input_data($data,'siswa');
+
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/siswa'));
+  }
+
+
+  public function hapus_siswa($kode)
+  {
+      $where = array('id_siswa' => $kode);
+
+      $this->m_data->hapus_data($where,'siswa');
+      
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/siswa'));
+  }
+
+
+
+  public function ubah_siswa()
+  {
+      
+      $db = get_instance()->db->conn_id;
+
+      // mysqli_real_escape_string anti injeksi
+      $id        = mysqli_real_escape_string($db, $this->input->post('id'));
+      $nama      = mysqli_real_escape_string($db, $this->input->post('nama'));
+      $username  = mysqli_real_escape_string($db, $this->input->post('username'));
+      $password  = mysqli_real_escape_string($db, $this->input->post('password'));
+
+      if($password == ""){
+        $where = array('id_siswa' => $id );
+      
+        $data = array(
+            'nama'        => $nama,
+            'username'    => $username,
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'siswa');
+
+      } else {
+        $where = array('id_siswa' => $id );
+
+        $pass_baru = hash('sha512', $password);
+        $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+      
+        $data = array(
+            'nama'        => $nama,
+            'username'    => $username,
+            'password'    => $hash,
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'siswa');
+      }
+
+      $this->session->set_flashdata('message', '
+      <div class="alert alert-success"> Perubahan berhasil!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+      </div>
+      ');
+              
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/siswa'));
+  }
+
+
   function logout()
   {
     $this->session->sess_destroy();
