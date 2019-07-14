@@ -6,10 +6,10 @@
                 <div class="content">
                     <div class="block">
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Blank <small>Get Started</small></h3>
+                            <h3 class="block-title">Selamat Datang <small><?= $admin->username; ?></small></h3>
                         </div>
                         <div class="block-content">
-                            <p>Create your own awesome project!</p>
+                            <p>Selamat datang kembali di Sistem Identifikasi Masalah Siswa</p>
                         </div>
                     </div>
                 </div>
