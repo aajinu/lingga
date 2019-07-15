@@ -444,6 +444,7 @@
             <!-- Main Container -->
             <main id="main-container">
                 <!-- Page Content -->
+            <div class="content">
                 <div class="block">
                         <div class="block-header block-header-default">
                             <h3 class="block-title">Profil Sekolah</h3>                            
@@ -454,11 +455,11 @@
                                     <label for="side-overlay-profile-email">Profil Sekolah</label>
                                     <div class="input-group">
                                         <textarea class="form-control" name="profil" placeholder="" ><?= $p->profil ?></textarea>
-                                    </div>
+                                    </div><br>
                                     <label for="side-overlay-profile-email">Visi</label>
                                     <div class="input-group">
                                         <textarea class="form-control" name="visi" placeholder="" ><?= $p->visi ?></textarea>
-                                    </div>
+                                    </div><br>
                                     <label for="side-overlay-profile-email">Misi</label>
                                     <div class="form-group row">
                                         <div class="col-12">
@@ -474,6 +475,7 @@
                             </form>
                         </div>
                     </div>
+                </div>
                 <!-- END Page Content -->
             </main>
             <!-- END Main Container -->

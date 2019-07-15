@@ -120,6 +120,7 @@ class Welcome extends CI_Controller {
         // mysqli_real_escape_string anti injeksi
         $soal      = mysqli_real_escape_string($db, $this->input->post('soal'));
         $bidang      = mysqli_real_escape_string($db, $this->input->post('bidang'));
+        $soal = str_ireplace(array("\r","\n",'\r','\n'),'', $soal);
         $data = array(
             'soal'    => $soal,
             'bidang'    => $bidang
