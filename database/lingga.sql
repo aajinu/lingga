@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.7.0
+-- version 4.8.5
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 07, 2019 at 07:21 PM
--- Server version: 10.1.25-MariaDB
--- PHP Version: 5.6.31
+-- Generation Time: Jul 15, 2019 at 01:20 AM
+-- Server version: 10.1.40-MariaDB
+-- PHP Version: 7.3.5
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -41,7 +41,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id_admin`, `username`, `password`, `email`, `tanggaljam`) VALUES
-(1, 'admin', 'c3284d0f94606de1fd2af172aba15bf3', 'admin@admin.admins', '2019-07-07 17:42:00');
+(1, 'admin', '$2y$10$O64AF56MxBLaWsIZS2Lqp.2Hdfw0Rxua5EAt8RkLqn2n1O5h/jS0u', 'ahmadyahya@bookcircle.id', '2019-07-07 17:42:00');
 
 -- --------------------------------------------------------
 
@@ -60,11 +60,56 @@ CREATE TABLE `angket` (
 --
 
 INSERT INTO `angket` (`id_angket`, `soal`, `bidang`) VALUES
-(8, 'Saya merasa belum disiplin dalam beribadah pada Tuhan YME', 'Pribadi'),
-(9, 'Saya kadang-kadang berperilaku dan bertutur kata tidak jujur', 'Pribadi'),
-(10, 'Saya kadang-kadang masih suka menyontek pada waktu tes', 'Pribadi'),
-(11, 'Saya merasa belum bisa mengendalikan emosi dengan baik', 'Pribadi'),
-(12, 'Saya belum paham tentang sikap dan perilaku asertif', 'Pribadi');
+(1, 'Saya merasa belum disiplin dalam beribadah pada Tuhan YME', 'pribadi'),
+(2, 'Saya kadang-kadang berperilaku dan bertutur kata tidak jujur', 'pribadi'),
+(3, 'Saya kadang-kadang masih suka menyontek pada waktu tes', 'pribadi'),
+(4, 'Saya merasa belum bisa mengendalikan emosi dengan baik', 'pribadi'),
+(5, 'Saya belum paham tentang sikap dan perilaku asertif', 'pribadi'),
+(6, 'Saya belum tahu cara mengenal dan memahami diri sendiri', 'pribadi'),
+(7, 'Saya belum memahami potensi diri', 'pribadi'),
+(8, 'Saya belum tahu perubahan dan permasalahan yang terjadi pada masa remaja', 'pribadi'),
+(9, 'Saya belum mengenal tentang macam-macam kepribadian ', 'pribadi'),
+(10, 'Saya kurang memiliki rasa percaya diri', 'pribadi'),
+(11, 'Saya kadang kurang menjaga kesehatan diri', 'pribadi'),
+(12, 'Saya belum tahu ciri-ciri/sifat/prilaku pribadi yang berkarakter', 'pribadi'),
+(13, 'Saya merasa kurang memilki tanggung jawab  pada diri sendiri', 'pribadi'),
+(14, 'Saya kesulitan mengatur waktu belajar dan bermain  ', 'pribadi'),
+(15, 'Kondisi orang tua saya sedang tidak harmonis', 'pribadi'),
+(16, 'Saya merasa tidak betah tinggal di rumah sendiri', 'pribadi'),
+(17, 'Saya mempunyai masalah dengan anggota keluarga di rumah', 'pribadi'),
+(18, 'Saya  belum bisa menjadi pribadi yang mandiri', 'pribadi'),
+(19, 'Saya sedang memiliki konflik pribadi', 'pribadi'),
+(20, 'Saya belum memahami tentang norma/cara membangun  berkeluarga', 'pribadi'),
+(21, 'Saya belum banyak mengenal lingkungan sekolah baru', 'sosial'),
+(22, 'Saya belum memahami tentang kenakalan remaja', 'sosial'),
+(23, 'Saya masih sedikit mengetahui tentang dampak atau bahaya rokok', 'sosial'),
+(24, 'Saya belum banyak mengenal tentang perilaku sosial yang bertanggung jawab', 'sosial'),
+(25, 'Saya belum tahu tentang bullying dan cara mensikapinya', 'sosial'),
+(26, 'Saya sukar bergaul dengan teman-teman di sekolah', 'sosial'),
+(27, 'Sering saya dianggap tidak sopan pada orang lain', 'sosial'),
+(28, 'Saya kurang memahami dampak dari media sosial', 'sosial'),
+(29, 'Saya jarang bermain/berteman di lingkungan tempat saya tinggal', 'sosial'),
+(30, 'Saya belum banyak teman atau sahabat', 'sosial'),
+(31, 'Saya kurang suka  berkomunikasi dengan teman lawan jenis', 'sosial'),
+(32, 'Saya belum tahu cara belajar yang baik dan benar di SMK/MAK', 'sosial'),
+(33, 'Saya belum tahu cara meraih prestasi di sekolah', 'sosial'),
+(34, 'Saya belum paham tentang gaya belajar dan strategi yang sesuai dengannya', 'sosial'),
+(35, 'Orang tua saya tidak peduli dengan kegiatan belajar saya', 'sosial'),
+(36, 'Saya masih sering menunda-nunda tugas sekolah/pekerjaan rumah (PR)  ', 'sosial'),
+(37, 'Saya merasa kesulitan dalam memahami pelajaran tertentu', 'sosial'),
+(38, 'Saya belum tahu cara memanfaatkan sumber belajar', 'sosial'),
+(39, 'Saya belajarnya jika akan ada tes  atau ujian saja', 'sosial'),
+(40, 'Saya belum tahu tentang struktur kurikulum yang ada di sekolah', 'sosial'),
+(41, 'Saya merasa malas belajar dan kalau belajar sering ngantuk', 'sosial'),
+(42, 'Saya belum terbiasa belajar bersama atau belajar kelompok', 'sosial'),
+(43, 'Saya belum paham cara memilih lembaga bimbingan belajar yang baik', 'sosial'),
+(44, 'Saya belum dapat memanfaatkan teknologi informasi untuk belajar', 'sosial'),
+(45, 'Saya belum tahu cara memperoleh bantuan pendidikan (beasiswa)', 'sosial'),
+(46, 'Saya terpaksa harus bekerja untuk mencukupi kebutuhan hidup', 'sosial'),
+(47, 'Saya merasa bingung memilih kegiatan esktrakurikuler di sekolah', 'sosial'),
+(48, 'Saya merasa belum mantap pada pilihan peminatan yang diambil', 'sosial'),
+(49, 'Saya merasa belum paham hubungan antara hobi, bakat, minat, kemampuan dan karir', 'sosial'),
+(50, 'Saya belum memiliki perencanaan karir masa depan', 'sosial');
 
 -- --------------------------------------------------------
 
@@ -76,15 +121,17 @@ CREATE TABLE `guru` (
   `id_guru` int(11) NOT NULL,
   `guru` varchar(50) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(100) NOT NULL
+  `password` varchar(100) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `nohp` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id_guru`, `guru`, `username`, `password`) VALUES
-(1, 'BK', 'bk', '7e7ec59d1f4b21021577ff562dc3d48b');
+INSERT INTO `guru` (`id_guru`, `guru`, `username`, `password`, `email`, `nohp`) VALUES
+(1, 'ahmad yahya asy-syidqie', 'gurubk', '$2y$10$yrL3U3zGBn93QdtPQC9el.XTjIVnzv1wK2TBW9KEiIHLvOlmGFvaa', 'ahmadyahya@bookcircle.id', '0898647688050');
 
 -- --------------------------------------------------------
 
@@ -132,9 +179,7 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `nama`, `username`, `password`, `nis`, `ttl`, `alamat`, `email`, `telp`, `kelas`, `jurusan`, `tahun`) VALUES
-(3, 'aji', 'aji', '8d045450ae16dc81213a75b725ee2760', '', '', '', '', 0, '', '', 0),
-(4, 'yaqie ', 'yaqie', '5dd13b8a34f49fcf7e6f04e100311932', '', '', '', '', 0, '', '', 0),
-(5, 'zaki', 'zaki', '9784ea3da268563469df99b2e6593564', '', '', '', '', 0, '', '', 0);
+(7, 'lingga', 'lingga', '$2y$10$lgKBlDeZGXSJm95RN89XnOXWeU2S7sYYyfzRKyS1wZQ', '', '', '', '', 0, '', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -178,27 +223,32 @@ ALTER TABLE `siswa`
 -- AUTO_INCREMENT for table `admin`
 --
 ALTER TABLE `admin`
-  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `angket`
 --
 ALTER TABLE `angket`
-  MODIFY `id_angket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_angket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
+
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
   MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
   MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;COMMIT;
+  MODIFY `id_siswa` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
+COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
