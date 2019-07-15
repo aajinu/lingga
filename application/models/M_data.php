@@ -38,6 +38,12 @@ class M_data extends CI_Model{
 	{
     return $this->db->query("select * from admin where username = '$username' or email = '$username'");
 	}
+
+
+	function get_user($username,$db)
+	{
+    return $this->db->query("select * from $db where username = '$username' or email = '$username'");
+	}
 	
 	function get_user2($username)
 	{
