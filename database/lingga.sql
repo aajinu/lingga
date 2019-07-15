@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2019 at 07:59 PM
+-- Generation Time: Jul 16, 2019 at 12:45 AM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -119,19 +119,45 @@ INSERT INTO `angket` (`id_angket`, `soal`, `bidang`) VALUES
 
 CREATE TABLE `guru` (
   `id_guru` int(11) NOT NULL,
-  `guru` varchar(50) NOT NULL,
+  `nama` varchar(50) NOT NULL,
+  `nip` int(50) NOT NULL,
+  `jk` varchar(100) NOT NULL,
+  `ttl` text NOT NULL,
+  `alamat` text NOT NULL,
+  `agama` varchar(100) NOT NULL,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `nohp` varchar(15) NOT NULL
+  `telp` varchar(15) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `guru`
 --
 
-INSERT INTO `guru` (`id_guru`, `guru`, `username`, `password`, `email`, `nohp`) VALUES
-(1, 'ahmad yahya asy-syidqie', 'gurubk', '$2y$10$yrL3U3zGBn93QdtPQC9el.XTjIVnzv1wK2TBW9KEiIHLvOlmGFvaa', 'ahmadyahya@bookcircle.id', '0898647688050');
+INSERT INTO `guru` (`id_guru`, `nama`, `nip`, `jk`, `ttl`, `alamat`, `agama`, `username`, `password`, `email`, `telp`) VALUES
+(3, 'Romlah', 19610108, 'p', 'Cilacap, 4 Mei 1997', 'Jl. Abimanyu', 'islam', 'aa', '$2y$10$yVlNNR8VjUp/CK4ZnskhwOBQzybRTr2ohBpngJRj/z/dptA2W5to6', 'zuffahf@gmail.com', '6345342');
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `kelas`
+--
+
+CREATE TABLE `kelas` (
+  `id_kelas` int(11) NOT NULL,
+  `kelas` varchar(100) NOT NULL,
+  `jurusan` varchar(100) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `kelas`
+--
+
+INSERT INTO `kelas` (`id_kelas`, `kelas`, `jurusan`) VALUES
+(2, '1TITL1', 'Teknik Instalasi Tenaga Listrik'),
+(3, '1TGB1', 'Teknik Gambar Bangunan'),
+(4, '2TGB1', 'Teknik Gambar Bangunan');
 
 -- --------------------------------------------------------
 
@@ -151,7 +177,7 @@ CREATE TABLE `profil` (
 --
 
 INSERT INTO `profil` (`id_profil`, `profil`, `visi`, `misi`) VALUES
-(1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'maju, mundur, kanan, kiri, atas, bawah.dgdvsdvsdvsd', '<ol>	<li>ajsvajsoasgnolas</li>	<li>asgjbdogjflgkf</li>	<li>dfhbdfbdf</li>	<li>dfbdfbdbd</li></ol>');
+(1, 'Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industrys standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.', 'maju, mundur, kanan, kiri, atas, bawah.dgdvsdvsdvsds', '<ol>	<li>ajsvajsoasgnolas</li>	<li>asgjbdogjflgkf</li>	<li>dfhbdfbdf</li>	<li>dfbdfbdbd</li>	<li>qefqew</li></ol>');
 
 -- --------------------------------------------------------
 
@@ -163,24 +189,26 @@ CREATE TABLE `siswa` (
   `id_siswa` int(50) NOT NULL,
   `nama` varchar(100) NOT NULL,
   `username` varchar(50) NOT NULL,
-  `password` varchar(50) NOT NULL,
+  `password` varchar(100) NOT NULL,
   `nis` varchar(50) NOT NULL,
-  `ttl` varchar(100) NOT NULL,
+  `ttl` text NOT NULL,
   `alamat` text NOT NULL,
   `email` varchar(50) NOT NULL,
   `telp` int(15) NOT NULL,
   `kelas` varchar(50) NOT NULL,
   `jurusan` varchar(50) NOT NULL,
-  `tahun` int(4) NOT NULL
+  `jk` varchar(100) NOT NULL,
+  `agama` varchar(100) NOT NULL,
+  `tahun` varchar(50) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `siswa`
 --
 
-INSERT INTO `siswa` (`id_siswa`, `nama`, `username`, `password`, `nis`, `ttl`, `alamat`, `email`, `telp`, `kelas`, `jurusan`, `tahun`) VALUES
-(7, 'lingga', 'lingga', '$2y$10$lgKBlDeZGXSJm95RN89XnOXWeU2S7sYYyfzRKyS1wZQ', '', '', '', '', 0, '', '', 0),
-(8, 'aji', 'aji', '$2y$10$GOueOJvKv/zHTQDsYyVzJefHmZDkMYGGLTvdfyZQ4dh', '', '', '', '', 0, '', '', 0);
+INSERT INTO `siswa` (`id_siswa`, `nama`, `username`, `password`, `nis`, `ttl`, `alamat`, `email`, `telp`, `kelas`, `jurusan`, `jk`, `agama`, `tahun`) VALUES
+(10, 'dillaa', 'dilla', '$2y$10$st6q3sO1u9ikkVoxqS/Bd.v9w4HmVzB5qEhHVPYFTMeTK/KJgymzm', '1341241', 'Cilacap, 3 Mei 1997', 'Jl. Banjaran ', 'cyaemdilla@yahoo.co.id', 87765457, '1TITL1', 'Teknik Instalasi Tenaga Listrik', 'p', 'islam', '2020'),
+(11, 'zako', 'zaki', '$2y$10$hyJwAyhcsL1Gg8aU1btxwOXmRkK7gTW3CMWAd3aDs/TaIWAl7WB0W', '124134', 'Cilacap, 4 Mei 1997', 'JL. adbakjs', 'zaki@gmail.com', 6345342, '1TGB1', 'Teknik Gambar Bangunan', 'p', 'kristen', '2019');
 
 --
 -- Indexes for dumped tables
@@ -203,6 +231,12 @@ ALTER TABLE `angket`
 --
 ALTER TABLE `guru`
   ADD PRIMARY KEY (`id_guru`);
+
+--
+-- Indexes for table `kelas`
+--
+ALTER TABLE `kelas`
+  ADD PRIMARY KEY (`id_kelas`);
 
 --
 -- Indexes for table `profil`
@@ -234,7 +268,12 @@ ALTER TABLE `angket`
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
-  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+--
+-- AUTO_INCREMENT for table `kelas`
+--
+ALTER TABLE `kelas`
+  MODIFY `id_kelas` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `profil`
 --
@@ -244,7 +283,7 @@ ALTER TABLE `profil`
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;COMMIT;
+  MODIFY `id_siswa` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
