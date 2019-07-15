@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.5
+-- version 4.7.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 15, 2019 at 01:20 AM
--- Server version: 10.1.40-MariaDB
--- PHP Version: 7.3.5
+-- Generation Time: Jul 15, 2019 at 07:59 PM
+-- Server version: 10.1.25-MariaDB
+-- PHP Version: 5.6.31
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -91,25 +91,25 @@ INSERT INTO `angket` (`id_angket`, `soal`, `bidang`) VALUES
 (29, 'Saya jarang bermain/berteman di lingkungan tempat saya tinggal', 'sosial'),
 (30, 'Saya belum banyak teman atau sahabat', 'sosial'),
 (31, 'Saya kurang suka  berkomunikasi dengan teman lawan jenis', 'sosial'),
-(32, 'Saya belum tahu cara belajar yang baik dan benar di SMK/MAK', 'sosial'),
-(33, 'Saya belum tahu cara meraih prestasi di sekolah', 'sosial'),
-(34, 'Saya belum paham tentang gaya belajar dan strategi yang sesuai dengannya', 'sosial'),
-(35, 'Orang tua saya tidak peduli dengan kegiatan belajar saya', 'sosial'),
-(36, 'Saya masih sering menunda-nunda tugas sekolah/pekerjaan rumah (PR)  ', 'sosial'),
-(37, 'Saya merasa kesulitan dalam memahami pelajaran tertentu', 'sosial'),
-(38, 'Saya belum tahu cara memanfaatkan sumber belajar', 'sosial'),
-(39, 'Saya belajarnya jika akan ada tes  atau ujian saja', 'sosial'),
-(40, 'Saya belum tahu tentang struktur kurikulum yang ada di sekolah', 'sosial'),
-(41, 'Saya merasa malas belajar dan kalau belajar sering ngantuk', 'sosial'),
-(42, 'Saya belum terbiasa belajar bersama atau belajar kelompok', 'sosial'),
-(43, 'Saya belum paham cara memilih lembaga bimbingan belajar yang baik', 'sosial'),
-(44, 'Saya belum dapat memanfaatkan teknologi informasi untuk belajar', 'sosial'),
-(45, 'Saya belum tahu cara memperoleh bantuan pendidikan (beasiswa)', 'sosial'),
-(46, 'Saya terpaksa harus bekerja untuk mencukupi kebutuhan hidup', 'sosial'),
-(47, 'Saya merasa bingung memilih kegiatan esktrakurikuler di sekolah', 'sosial'),
-(48, 'Saya merasa belum mantap pada pilihan peminatan yang diambil', 'sosial'),
-(49, 'Saya merasa belum paham hubungan antara hobi, bakat, minat, kemampuan dan karir', 'sosial'),
-(50, 'Saya belum memiliki perencanaan karir masa depan', 'sosial');
+(32, 'Saya belum tahu cara belajar yang baik dan benar di SMK/MAK', 'belajar'),
+(33, 'Saya belum tahu cara meraih prestasi di sekolah', 'belajar'),
+(34, 'Saya belum paham tentang gaya belajar dan strategi yang sesuai dengannya', 'belajar'),
+(35, 'Orang tua saya tidak peduli dengan kegiatan belajar saya', 'belajar'),
+(36, 'Saya masih sering menunda-nunda tugas sekolah/pekerjaan rumah (PR)  ', 'belajar'),
+(37, 'Saya merasa kesulitan dalam memahami pelajaran tertentu', 'belajar'),
+(38, 'Saya belum tahu cara memanfaatkan sumber belajar', 'belajar'),
+(39, 'Saya belajarnya jika akan ada tes  atau ujian saja', 'belajar'),
+(40, 'Saya belum tahu tentang struktur kurikulum yang ada di sekolah', 'belajar'),
+(41, 'Saya merasa malas belajar dan kalau belajar sering ngantuk', 'belajar'),
+(42, 'Saya belum terbiasa belajar bersama atau belajar kelompok', 'belajar'),
+(43, 'Saya belum paham cara memilih lembaga bimbingan belajar yang baik', 'belajar'),
+(44, 'Saya belum dapat memanfaatkan teknologi informasi untuk belajar', 'belajar'),
+(45, 'Saya belum tahu cara memperoleh bantuan pendidikan (beasiswa)', 'karir'),
+(46, 'Saya terpaksa harus bekerja untuk mencukupi kebutuhan hidup', 'karir'),
+(47, 'Saya merasa bingung memilih kegiatan esktrakurikuler di sekolah', 'karir'),
+(48, 'Saya merasa belum mantap pada pilihan peminatan yang diambil', 'karir'),
+(49, 'Saya merasa belum paham hubungan antara hobi, bakat, minat, kemampuan dan karir', 'karir'),
+(50, 'Saya belum memiliki perencanaan karir masa depan', 'karir');
 
 -- --------------------------------------------------------
 
@@ -179,7 +179,8 @@ CREATE TABLE `siswa` (
 --
 
 INSERT INTO `siswa` (`id_siswa`, `nama`, `username`, `password`, `nis`, `ttl`, `alamat`, `email`, `telp`, `kelas`, `jurusan`, `tahun`) VALUES
-(7, 'lingga', 'lingga', '$2y$10$lgKBlDeZGXSJm95RN89XnOXWeU2S7sYYyfzRKyS1wZQ', '', '', '', '', 0, '', '', 0);
+(7, 'lingga', 'lingga', '$2y$10$lgKBlDeZGXSJm95RN89XnOXWeU2S7sYYyfzRKyS1wZQ', '', '', '', '', 0, '', '', 0),
+(8, 'aji', 'aji', '$2y$10$GOueOJvKv/zHTQDsYyVzJefHmZDkMYGGLTvdfyZQ4dh', '', '', '', '', 0, '', '', 0);
 
 --
 -- Indexes for dumped tables
@@ -224,31 +225,26 @@ ALTER TABLE `siswa`
 --
 ALTER TABLE `admin`
   MODIFY `id_admin` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `angket`
 --
 ALTER TABLE `angket`
   MODIFY `id_angket` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=51;
-
 --
 -- AUTO_INCREMENT for table `guru`
 --
 ALTER TABLE `guru`
   MODIFY `id_guru` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `profil`
 --
 ALTER TABLE `profil`
   MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
-
 --
 -- AUTO_INCREMENT for table `siswa`
 --
 ALTER TABLE `siswa`
-  MODIFY `id_siswa` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=8;
-COMMIT;
+  MODIFY `id_siswa` int(50) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
