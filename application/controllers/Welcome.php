@@ -4,8 +4,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 $date 		= date("Y-m-d H:i:s");
 
 class Welcome extends CI_Controller {
-// jjjjjjjjjjjjjjjjjjjjjj
-/// yaqie ganteng
+
 	function __construct()
 	{
 		parent::__construct();
@@ -14,18 +13,137 @@ class Welcome extends CI_Controller {
 
 	public function index()
 	{
-        // mengambil data2 dari table admin
-        $data_admin = $this->m_data->tampil_data('admin')->result();
-        $data_profil = $this->m_data->tampil_data('profil')->result();
+		$this->load->view('halamandepan/login');
+    }
 
-        // di parsing ke view
-        $data = array(
-            'admin' => $data_admin, 
-            'profil' => $data_profil, 
-        );
 
-        // menampilkan view index
-		$this->load->view('index',$data);
+    function login (){
+    $db = get_instance()->db->conn_id;
+
+    // mysqli_real_escape_string anti injeksi
+    $username = mysqli_real_escape_string($db, $this->input->post('username'));
+    $password = mysqli_real_escape_string($db, $this->input->post('password'));
+    $level = mysqli_real_escape_string($db, $this->input->post('level'));
+
+    if ($level == 1) {
+        // cek username apakah tersedia di dalam database atau tidak.
+        $cek = $this->m_data->get_user($username,'guru')->num_rows();
+
+
+        if ($cek == 0) {
+            // jika username tidak di temukan
+
+            $this->session->set_flashdata('message', '
+                <div class="alert alert-danger"> Kombinasi Username dan Password Salah!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+            ');
+
+            // jika username tidak tersedia dalam database,
+            // maka akan di arahkan ke halaman login
+            redirect(base_url());
+
+
+        } else {
+
+            // jika username ditemukan dalam database
+
+            // baca data akun dari database
+            $u = $this->m_data->get_user($username,'guru')->row();
+
+            // ganti isi variabel $password_user sesuai tabel
+            $password_user = $u->password;
+
+            // koreksi password
+            $pass = hash('sha512', $password);
+            if (password_verify($pass,$password_user)) {
+
+                $data_session = array(
+                    'id_guru'           => $u->id_guru,
+                    'username_guru'     => $u->username,
+                    'email_guru'        => $u->email,
+                    'status'            => "loginguru"
+                );
+
+                // membuat session berdasarkan $data_session
+                $this->session->set_userdata($data_session);
+
+                // masuk ke halaman dashboard
+                redirect(base_url('guru'));
+            } else {
+                $this->session->set_flashdata('message', '
+                <div class="alert alert-danger"> Kombinasi Username dan Password Salah!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+                ');
+                // jika password salah,
+                // maka akan di arahkan ke halaman login
+                redirect(base_url());
+            }
+        }
+    } else {
+        // cek username apakah tersedia di dalam database atau tidak.
+        $cek = $this->m_data->get_user($username,'siswa')->num_rows();
+
+
+        if ($cek == 0) {
+            // jika username tidak di temukan
+
+            $this->session->set_flashdata('message', '
+                <div class="alert alert-danger"> Kombinasi Username dan Password Salah!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+            ');
+
+            // jika username tidak tersedia dalam database,
+            // maka akan di arahkan ke halaman login
+            redirect(base_url());
+
+
+        } else {
+
+            // jika username ditemukan dalam database
+
+            // baca data akun dari database
+            $u = $this->m_data->get_user($username,'siswa')->row();
+            echo $u->id_siswa;
+
+            // ganti isi variabel $password_user sesuai tabel
+            $password_user = $u->password;
+
+            // koreksi password
+            $pass = hash('sha512', $password);
+            if (password_verify($pass,$password_user)) {
+
+                $data_session = array(
+                    'id_siswa'           => $u->id_siswa,
+                    'username_siswa'     => $u->username,
+                    'email_siswa'        => $u->email,
+                    'status'            => "loginsiswa"
+                );
+
+                // membuat session berdasarkan $data_session
+                $this->session->set_userdata($data_session);
+
+                // masuk ke halaman dashboard
+                redirect(base_url('siswa'));
+            } else {
+                $this->session->set_flashdata('message', '
+                <div class="alert alert-danger"> Kombinasi Username dan Password Salah!
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+                </div>
+                ');
+                // jika password salah,
+                // maka akan di arahkan ke halaman login
+                redirect(base_url());
+            }
+        }
+    }
+    
+
+
+
+    
     }
 
     public function siswa()
