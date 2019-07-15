@@ -118,7 +118,13 @@
                                     <a href="<?= base_url('admin/guru'); ?>"><i class="fa fa-user-secret"></i><span class="sidebar-mini-hide">Guru</span></a>
                                 </li>
                                 <li>
+                                    <a href="<?= base_url('admin/kelas'); ?>"><i class="fa fa-archive"></i><span class="sidebar-mini-hide">Kelas</span></a>
+                                </li>
+                                <li>
                                     <a href="<?= base_url('admin/siswa'); ?>"><i class="fa fa-users"></i><span class="sidebar-mini-hide">Siswa</span></a>
+                                </li>
+                                <li>
+                                    <a href="<?= base_url('admin/profil_sekolah'); ?>"><i class="fa fa-ship"></i><span class="sidebar-mini-hide">Profil Sekolah</span></a>
                                 </li>
                                 <li>
                                     <a href="<?= base_url('admin/profil'); ?>"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Profil</span></a>

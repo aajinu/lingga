@@ -1,16 +1,8 @@
 <div class="content-side content-side-full">
-    <ul class="nav-main">
-                                
+    <ul class="nav-main">                               
+        
         <li>
-            <a class="nav-submenu" data-toggle="nav-submenu" href="#"><i class="si si-settings"></i><span class="sidebar-mini-hide">Setting</span></a>
-            <ul>
-                <li>
-                    <a href="<?= base_url('welcome/profil'); ?>">Profil Sekolah</a>
-                </li>
-                <li>
-                    <a href="<?= base_url('welcome/angket'); ?>">Angket</a>
-                </li>
-            </ul>
+            <a href="<?= base_url('welcome/angket'); ?>"><i class="si si-eye"></i><span class="sidebar-mini-hide">Angket</span></a>
         </li>
 
         <li>
