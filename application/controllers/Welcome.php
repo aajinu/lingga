@@ -373,4 +373,12 @@ class Welcome extends CI_Controller {
         // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
         redirect(base_url('welcome'));
     }
+
+
+
+    function logout()
+    {
+        $this->session->sess_destroy();
+        redirect(base_url());
+    }
 }
