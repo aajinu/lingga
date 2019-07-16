@@ -27,5 +27,12 @@
 
         <!-- Page JS Code -->
         <script src="<?= base_url('assets/admin/') ?>js/pages/be_tables_datatables.js"></script>
+        <script src="<?= base_url('assets/admin/') ?>js/plugins/ckeditor/ckeditor.js"></script>
+        <script>
+            jQuery(function () {
+                // Init page helpers (Summernote + CKEditor + SimpleMDE plugins)
+                Codebase.helpers(['summernote', 'ckeditor', 'simplemde']);
+            });
+        </script>
     </body>
 </html>

@@ -46,20 +46,45 @@
                                     </li>                                    
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#FF8C00; font-size:18px;">
-                                            Pages
+                                            AKPD
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                                             <a class="dropdown-item" href="<?= base_url('welcome/hasil_angket'); ?>" style="color:black;">Hasil Angket</a>
+                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">Angket</a>
                                             <a class="dropdown-item" href="single-blog.html" style="color:black;"></a>
                                         </div>
                                     </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#FF8C00; font-size:18px;">
+                                            RPL
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="<?= base_url('welcome/hasil_angket'); ?>" style="color:black;">RPL Individu</a>
+                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">RPL Kelompok</a>
+                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">RPL Klasikal</a>
+                                            <a class="dropdown-item" href="single-blog.html" style="color:black;"></a>
+                                        </div>
+                                    </li>
+
+                                    <li class="nav-item dropdown">
+                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#FF8C00; font-size:18px;">
+                                            Program
+                                        </a>
+                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="<?= base_url('welcome/hasil_angket'); ?>" style="color:black;">Semester Ganjil</a>
+                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">Semester Genap</a>
+                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">Jadwal Pembelajaran</a>
+                                            <a class="dropdown-item" href="single-blog.html" style="color:black;"></a>
+                                        </div>
+                                    </li>
+
                                     <li class="nav-item dropdown">
                                         <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#FF8C00; font-size:18px;">
                                             Setting
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="<?= base_url('welcome/profil'); ?>" style="color:black;">Profile</a>
-                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">Angket</a>
+                                            <a class="dropdown-item" href="<?= base_url('welcome/profil'); ?>" style="color:black;">Profil Guru</a>                                            
                                             <a class="dropdown-item" href="single-blog.html" style="color:black;">Logout</a>
                                         </div>
                                     </li>

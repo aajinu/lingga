@@ -278,6 +278,59 @@ class P_admin extends CI_Controller {
 
       // mysqli_real_escape_string anti injeksi
       $nama          = mysqli_real_escape_string($db, $this->input->post('nama'));
+      $nis          = mysqli_real_escape_string($db, $this->input->post('nis'));
+      $jk          = mysqli_real_escape_string($db, $this->input->post('jk'));
+      $ttl          = mysqli_real_escape_string($db, $this->input->post('ttl'));
+      $agama          = mysqli_real_escape_string($db, $this->input->post('agama'));
+      $alamat          = mysqli_real_escape_string($db, $this->input->post('alamat'));
+      $email          = mysqli_real_escape_string($db, $this->input->post('email'));
+      $telp          = mysqli_real_escape_string($db, $this->input->post('telp'));
+      $username      = mysqli_real_escape_string($db, $this->input->post('username'));
+      $password      = mysqli_real_escape_string($db, $this->input->post('password'));
+      $kelas      = mysqli_real_escape_string($db, $this->input->post('kelas'));
+      $jurusan      = mysqli_real_escape_string($db, $this->input->post('jurusan'));
+      $tahun      = mysqli_real_escape_string($db, $this->input->post('tahun'));
+
+      $pass_baru = hash('sha512', $password);
+      $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+
+      $data = array(
+          'nama'        => $nama,
+          'nis'        => $nis,
+          'jk'        => $jk,
+          'ttl'        => $ttl,
+          'agama'        => $agama,
+          'alamat'        => $alamat,
+          'email'        => $email,
+          'telp'        => $telp,
+          'username'    => $username,
+          'password'    => $hash,
+          'kelas'    => $kelas,
+          'jurusan'    => $jurusan,
+          'tahun'    => $tahun,
+      );
+
+      // ===== input data ke tabel =====             
+      $this->m_data->input_data($data,'siswa');
+
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/siswa'));
+  }
+
+  public function tambah_guru()
+  {
+      global $date;
+      $db = get_instance()->db->conn_id;
+
+      // mysqli_real_escape_string anti injeksi
+      $nama          = mysqli_real_escape_string($db, $this->input->post('nama'));
+      $nip          = mysqli_real_escape_string($db, $this->input->post('nip'));
+      $jk          = mysqli_real_escape_string($db, $this->input->post('jk'));
+      $ttl          = mysqli_real_escape_string($db, $this->input->post('ttl'));
+      $agama          = mysqli_real_escape_string($db, $this->input->post('agama'));
+      $alamat          = mysqli_real_escape_string($db, $this->input->post('alamat'));
+      $email          = mysqli_real_escape_string($db, $this->input->post('email'));
+      $telp          = mysqli_real_escape_string($db, $this->input->post('telp'));
       $username      = mysqli_real_escape_string($db, $this->input->post('username'));
       $password      = mysqli_real_escape_string($db, $this->input->post('password'));
 
@@ -286,15 +339,22 @@ class P_admin extends CI_Controller {
 
       $data = array(
           'nama'        => $nama,
+          'nip'        => $nip,
+          'jk'        => $jk,
+          'ttl'        => $ttl,
+          'agama'        => $agama,
+          'alamat'        => $alamat,
+          'email'        => $email,
+          'telp'        => $telp,
           'username'    => $username,
           'password'    => $hash,
       );
 
       // ===== input data ke tabel =====             
-      $this->m_data->input_data($data,'siswa');
+      $this->m_data->input_data($data,'guru');
 
       // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
-      redirect(base_url('admin/siswa'));
+      redirect(base_url('admin/guru'));
   }
 
 
@@ -308,6 +368,26 @@ class P_admin extends CI_Controller {
       redirect(base_url('admin/siswa'));
   }
 
+  public function hapus_guru($kode)
+  {
+      $where = array('id_guru' => $kode);
+
+      $this->m_data->hapus_data($where,'guru');
+      
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/guru'));
+  }
+
+  public function hapus_kelas($kode)
+  {
+      $where = array('id_kelas' => $kode);
+
+      $this->m_data->hapus_data($where,'kelas');
+      
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/kelas'));
+  }
+
 
 
   public function ubah_siswa()
@@ -317,16 +397,40 @@ class P_admin extends CI_Controller {
 
       // mysqli_real_escape_string anti injeksi
       $id        = mysqli_real_escape_string($db, $this->input->post('id'));
-      $nama      = mysqli_real_escape_string($db, $this->input->post('nama'));
-      $username  = mysqli_real_escape_string($db, $this->input->post('username'));
-      $password  = mysqli_real_escape_string($db, $this->input->post('password'));
+      $nama          = mysqli_real_escape_string($db, $this->input->post('nama'));
+      $nis          = mysqli_real_escape_string($db, $this->input->post('nis'));
+      $jk          = mysqli_real_escape_string($db, $this->input->post('jk'));
+      $ttl          = mysqli_real_escape_string($db, $this->input->post('ttl'));
+      $agama          = mysqli_real_escape_string($db, $this->input->post('agama'));
+      $alamat          = mysqli_real_escape_string($db, $this->input->post('alamat'));
+      $email          = mysqli_real_escape_string($db, $this->input->post('email'));
+      $telp          = mysqli_real_escape_string($db, $this->input->post('telp'));
+      $username      = mysqli_real_escape_string($db, $this->input->post('username'));
+      $password      = mysqli_real_escape_string($db, $this->input->post('password'));
+      $kelas      = mysqli_real_escape_string($db, $this->input->post('kelas'));
+      $jurusan      = mysqli_real_escape_string($db, $this->input->post('jurusan'));
+      $tahun      = mysqli_real_escape_string($db, $this->input->post('tahun'));
+
+      $pass_baru = hash('sha512', $password);
+      $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+      
 
       if($password == ""){
         $where = array('id_siswa' => $id );
       
         $data = array(
-            'nama'        => $nama,
-            'username'    => $username,
+          'nama'        => $nama,
+          'nis'        => $nis,
+          'jk'        => $jk,
+          'ttl'        => $ttl,
+          'agama'        => $agama,
+          'alamat'        => $alamat,
+          'email'        => $email,
+          'telp'        => $telp,
+          'username'    => $username,
+          'kelas'    => $kelas,
+          'jurusan'    => $jurusan,
+          'tahun'    => $tahun,
         );
 
         // ===== input data ke tabel =====             
@@ -339,9 +443,19 @@ class P_admin extends CI_Controller {
         $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
       
         $data = array(
-            'nama'        => $nama,
-            'username'    => $username,
-            'password'    => $hash,
+          'nama'        => $nama,
+          'nis'        => $nis,
+          'jk'        => $jk,
+          'ttl'        => $ttl,
+          'agama'        => $agama,
+          'alamat'        => $alamat,
+          'email'        => $email,
+          'telp'        => $telp,
+          'username'    => $username,
+          'password'    => $hash,
+          'kelas'    => $kelas,
+          'jurusan'    => $jurusan,
+          'tahun'    => $tahun,
         );
 
         // ===== input data ke tabel =====             
@@ -358,6 +472,63 @@ class P_admin extends CI_Controller {
       redirect(base_url('admin/siswa'));
   }
 
+  public function tambah_kelas()
+  {
+      global $date;
+      $db = get_instance()->db->conn_id;
+
+      // mysqli_real_escape_string anti injeksi
+      $kelas          = mysqli_real_escape_string($db, $this->input->post('kelas'));
+      $jurusan          = mysqli_real_escape_string($db, $this->input->post('jurusan'));
+      
+      $data = array(
+          'kelas'        => $kelas,
+          'jurusan'        => $jurusan,
+      );
+
+      // ===== input data ke tabel =====             
+      $this->m_data->input_data($data,'kelas');
+      $this->session->set_flashdata('message', '
+      <div class="alert alert-success"> Data berhasil Ditambah!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+      </div>
+      ');
+
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/kelas'));
+  }
+
+  public function ubah_kelas()
+  {
+      
+      $db = get_instance()->db->conn_id;
+
+      // mysqli_real_escape_string anti injeksi
+      $id        = mysqli_real_escape_string($db, $this->input->post('id'));
+      $kelas      = mysqli_real_escape_string($db, $this->input->post('kelas'));
+      $jurusan      = mysqli_real_escape_string($db, $this->input->post('jurusan'));
+
+      $where = array('id_kelas' => $id );
+     
+        $data = array(          
+          'kelas'    => $kelas,
+          'jurusan'    => $jurusan,
+        );
+
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'kelas');
+      
+
+      $this->session->set_flashdata('message', '
+      <div class="alert alert-success"> Perubahan berhasil!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+      </div>
+      ');
+              
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/kelas'));
+  }
 
   function logout()
   {
