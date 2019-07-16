@@ -39,8 +39,25 @@ class Siswa extends CI_Controller {
         } else {
             $id_user = $this->session->userdata('id_siswa');
             $admin = $this->m_data->select_where(array('id_siswa' => $id_user),'siswa')->row();
-            $pribadi = $this->m_data->select_where(array('bidang' => 'pribadi'),'angket')->result();
-            $jumlah_soal = $this->m_data->select_where(array('bidang' => 'pribadi'),'angket')->num_rows();
+
+            $jumlah_pribadi = $this->m_data->select_where(array('bidang' => 'pribadi','id_siswa' => $id_user),'angket_pilihan')->num_rows();
+            $jumlah_sosial = $this->m_data->select_where(array('bidang' => 'sosial','id_siswa' => $id_user),'angket_pilihan')->num_rows();
+            $jumlah_belajar = $this->m_data->select_where(array('bidang' => 'belajar','id_siswa' => $id_user),'angket_pilihan')->num_rows();
+            $jumlah_karir = $this->m_data->select_where(array('bidang' => 'karir','id_siswa' => $id_user),'angket_pilihan')->num_rows();
+            if($jumlah_pribadi == 0){
+                $pribadi = $this->m_data->select_where(array('bidang' => 'pribadi'),'angket')->result();
+                $jumlah_soal = $this->m_data->select_where(array('bidang' => 'pribadi'),'angket')->num_rows();
+            } else if ($jumlah_sosial == 0){
+                $pribadi = $this->m_data->select_where(array('bidang' => 'sosial'),'angket')->result();
+                $jumlah_soal = $this->m_data->select_where(array('bidang' => 'sosial'),'angket')->num_rows();
+            } else if ($jumlah_belajar == 0){
+                $pribadi = $this->m_data->select_where(array('bidang' => 'belajar'),'angket')->result();
+                $jumlah_soal = $this->m_data->select_where(array('bidang' => 'belajar'),'angket')->num_rows();
+            } else if ($jumlah_karir == 0){
+                $pribadi = $this->m_data->select_where(array('bidang' => 'karir'),'angket')->result();
+                $jumlah_soal = $this->m_data->select_where(array('bidang' => 'karir'),'angket')->num_rows();
+            }
+
 
             // di parsing ke view
             $data = array(
