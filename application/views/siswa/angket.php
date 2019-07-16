@@ -9,6 +9,9 @@
                             <h3 class="block-title">Selamat Datang <small><?= $admin->username; ?></small></h3>
                         </div>
                         <div class="block-content">
+                            <?php
+                                if($jumlah == 0) {
+                            ?>
                             <form action="<?= base_url('siswa/jawaban_angket')?>" method="post">
                             <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                             <input type="hidden" name="jumlah_soal" value="<?= $jumlah_soal ?>">
@@ -41,6 +44,9 @@
                                 Selanjutnya <i class="fa fa-angle-right ml-5"></i>
                             </button>
                             </form>
+                            <?php } else { ?>
+                            Selesai
+                            <?php } ?>
                         </div>
                     </div>
                 </div>

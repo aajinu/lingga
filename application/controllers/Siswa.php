@@ -39,6 +39,7 @@ class Siswa extends CI_Controller {
         } else {
             $id_user = $this->session->userdata('id_siswa');
             $admin = $this->m_data->select_where(array('id_siswa' => $id_user),'siswa')->row();
+            $jumlah = 0;
 
             $jumlah_pribadi = $this->m_data->select_where(array('bidang' => 'pribadi','id_siswa' => $id_user),'angket_pilihan')->num_rows();
             $jumlah_sosial = $this->m_data->select_where(array('bidang' => 'sosial','id_siswa' => $id_user),'angket_pilihan')->num_rows();
@@ -56,14 +57,19 @@ class Siswa extends CI_Controller {
             } else if ($jumlah_karir == 0){
                 $pribadi = $this->m_data->select_where(array('bidang' => 'karir'),'angket')->result();
                 $jumlah_soal = $this->m_data->select_where(array('bidang' => 'karir'),'angket')->num_rows();
+            } else {
+                $jumlah = 1;
+                $pribadi = 0;
+                $jumlah_soal = 0;
             }
 
 
             // di parsing ke view
             $data = array(
-                'admin' => $admin,
-                'pribadi' => $pribadi,
-                'jumlah_soal' => $jumlah_soal,
+                'admin'         => $admin,
+                'pribadi'       => $pribadi,
+                'jumlah_soal'   => $jumlah_soal,
+                'jumlah'        => $jumlah,
             );
 
             $this->load->view('siswa/header_cb',$data);
