@@ -112,16 +112,13 @@
                         <div class="content-side content-side-full">
                             <ul class="nav-main">
                                 <li>
-                                    <a href="<?= base_url('admin'); ?>"><i class="fa fa-home"></i><span class="sidebar-mini-hide">Dashboard</span></a>
+                                    <a href="<?= base_url('siswa'); ?>"><i class="fa fa-home"></i><span class="sidebar-mini-hide">Home</span></a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('admin/guru'); ?>"><i class="fa fa-user-secret"></i><span class="sidebar-mini-hide">Guru</span></a>
+                                    <a href="<?= base_url('siswa/angket'); ?>"><i class="fa fa-user-secret"></i><span class="sidebar-mini-hide">Angket</span></a>
                                 </li>
                                 <li>
-                                    <a href="<?= base_url('admin/siswa'); ?>"><i class="fa fa-users"></i><span class="sidebar-mini-hide">Siswa</span></a>
-                                </li>
-                                <li>
-                                    <a href="<?= base_url('admin/profil'); ?>"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Profil</span></a>
+                                    <a href="<?= base_url('siswa/profil_saya'); ?>"><i class="fa fa-user"></i><span class="sidebar-mini-hide">Profil Saya</span></a>
                                 </li>
                             </ul>
                         </div>
