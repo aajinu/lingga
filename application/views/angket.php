@@ -444,6 +444,7 @@
             <!-- Main Container -->
             <main id="main-container">
                 <!-- Page Content -->
+            <div class="content">
                 <div class="block">
                         <div class="block-header block-header-default">
                             <h3 class="block-title">Butir Angket</h3>                            
@@ -506,10 +507,10 @@
                                     <label for="side-overlay-profile-email">Bidang</label>
                                     <select class="form-control" name="bidang" required="true">
                                         <option value="none" selected="" disabled="">Pilih Salah Satu</option>
-                                        <option value="Pribadi">Pribadi</option>
-                                        <option value="Sosial">Sosial</option>
-                                        <option value="Belajar">Belajar</option>
-                                        <option value="Karir">Karir</option>
+                                        <option value="pribadi">Pribadi</option>
+                                        <option value="sosial">Sosial</option>
+                                        <option value="belajar">Belajar</option>
+                                        <option value="karir">Karir</option>
                                     </select><br>
                                     <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
                                     <div class="form-group">
@@ -543,10 +544,10 @@
                                     <label for="side-overlay-profile-email">Bidang</label>
                                     <select class="form-control" name="bidang" required="true">
                                         <option value="none" selected="" disabled="">Pilih Salah Satu</option>
-                                        <option value="Pribadi">Pribadi</option>
-                                        <option value="Sosial">Sosial</option>
-                                        <option value="Belajar">Belajar</option>
-                                        <option value="Karir">Karir</option>
+                                        <option value="pribadi">Pribadi</option>
+                                        <option value="sosial">Sosial</option>
+                                        <option value="belajar">Belajar</option>
+                                        <option value="karir">Karir</option>
                                     </select><br>
                                     <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
                                     <div class="form-group">
@@ -561,6 +562,7 @@
                         
                     </div>
                 <!-- END Page Content -->
+            </div>
             </main>
             <!-- END Main Container -->
 
