@@ -43,7 +43,7 @@
                                         <a class="nav-link active" href="<?= base_url('siswa'); ?>" style="color:#FF8C00; font-size:18px;">Home</a>
                                     </li>
                                     <li class="nav-item active">
-                                        <a class="nav-link active" href="<?= base_url('welcome/#'); ?>" style="color:#FF8C00; font-size:18px;">Profil Saya</a>
+                                        <a class="nav-link active" href="<?= base_url('siswa/profil_saya'); ?>" style="color:#FF8C00; font-size:18px;">Profil Saya</a>
                                     </li>
                                     <li class="nav-item active">
                                         <a class="nav-link active" href="<?= base_url('siswa/angket'); ?>" style="color:#FF8C00; font-size:18px;">Angket</a>
