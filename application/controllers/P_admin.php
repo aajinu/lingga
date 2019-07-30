@@ -472,6 +472,79 @@ class P_admin extends CI_Controller {
       redirect(base_url('admin/siswa'));
   }
 
+  public function ubah_guru()
+  {
+      
+      $db = get_instance()->db->conn_id;
+
+      // mysqli_real_escape_string anti injeksi
+      $id        = mysqli_real_escape_string($db, $this->input->post('id'));
+      $nama          = mysqli_real_escape_string($db, $this->input->post('nama'));
+      $nip          = mysqli_real_escape_string($db, $this->input->post('nip'));
+      $jk          = mysqli_real_escape_string($db, $this->input->post('jk'));
+      $ttl          = mysqli_real_escape_string($db, $this->input->post('ttl'));
+      $agama          = mysqli_real_escape_string($db, $this->input->post('agama'));
+      $alamat          = mysqli_real_escape_string($db, $this->input->post('alamat'));
+      $email          = mysqli_real_escape_string($db, $this->input->post('email'));
+      $telp          = mysqli_real_escape_string($db, $this->input->post('telp'));
+      $username      = mysqli_real_escape_string($db, $this->input->post('username'));
+      $password      = mysqli_real_escape_string($db, $this->input->post('password'));
+
+      $pass_baru = hash('sha512', $password);
+      $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+      
+
+      if($password == ""){
+        $where = array('id_guru' => $id );
+      
+        $data = array(
+          'nama'        => $nama,
+          'nip'        => $nip,
+          'jk'        => $jk,
+          'ttl'        => $ttl,
+          'agama'        => $agama,
+          'alamat'        => $alamat,
+          'email'        => $email,
+          'telp'        => $telp,
+          'username'    => $username,
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'guru');
+
+      } else {
+        $where = array('id_guru' => $id );
+
+        $pass_baru = hash('sha512', $password);
+        $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+      
+        $data = array(
+          'nama'        => $nama,
+          'nip'        => $nip,
+          'jk'        => $jk,
+          'ttl'        => $ttl,
+          'agama'        => $agama,
+          'alamat'        => $alamat,
+          'email'        => $email,
+          'telp'        => $telp,
+          'username'    => $username,
+          'password'    => $hash,
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'guru');
+      }
+
+      $this->session->set_flashdata('message', '
+      <div class="alert alert-success"> Perubahan berhasil!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+      </div>
+      ');
+              
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('admin/guru'));
+  }
+
   public function tambah_kelas()
   {
       global $date;

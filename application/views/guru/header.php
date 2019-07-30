@@ -82,7 +82,7 @@
                                             Setting
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="<?= base_url('welcome/profil'); ?>" style="color:black;">Profil Guru</a>                                            
+                                            <a class="dropdown-item" href="<?= base_url('welcome/profil_guru'); ?>" style="color:black;">Profil Guru</a>                                            
                                             <a class="dropdown-item" href="<?= base_url('welcome/logout'); ?>" style="color:black;">Logout</a>
                                         </div>
                                     </li>

@@ -216,6 +216,139 @@ class Welcome extends CI_Controller {
         redirect(base_url('welcome/profil'));
     }
 
+    public function profil_guru()
+	{
+       
+            // mengambil data2 dari table admin
+            $id_user = $this->session->userdata('id_guru');
+            $admin = $this->m_data->select_where(array('id_guru' => $id_user),'guru')->row();
+            $jumlah = 0;
+            $data_admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $guru = $this->m_data->tampil_data('guru')->result();
+
+            // di parsing ke view
+            $data = array(
+                'admin' => $admin, 
+                'profil' => $data_profil, 
+                'guru' => $guru, 
+            );
+
+            
+            $this->load->view('profil_guru',$data);
+            
+        
+    }
+
+    public function ubah_profil_guru()
+  {
+      
+      $db = get_instance()->db->conn_id;
+
+      // mysqli_real_escape_string anti injeksi
+      $id        = mysqli_real_escape_string($db, $this->input->post('id'));
+      $nama          = mysqli_real_escape_string($db, $this->input->post('nama'));
+      $nip          = mysqli_real_escape_string($db, $this->input->post('nip'));
+      $jk          = mysqli_real_escape_string($db, $this->input->post('jk'));
+      $ttl          = mysqli_real_escape_string($db, $this->input->post('ttl'));
+      $agama          = mysqli_real_escape_string($db, $this->input->post('agama'));
+      $alamat          = mysqli_real_escape_string($db, $this->input->post('alamat'));
+      $email          = mysqli_real_escape_string($db, $this->input->post('email'));
+      $telp          = mysqli_real_escape_string($db, $this->input->post('telp'));
+      $username      = mysqli_real_escape_string($db, $this->input->post('username'));
+      $password      = mysqli_real_escape_string($db, $this->input->post('password'));
+
+      $pass_baru = hash('sha512', $password);
+      $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+      
+
+      if($password == ""){
+        $where = array('id_guru' => $id );
+      
+        $data = array(
+          'nama'        => $nama,
+          'nip'        => $nip,
+          'jk'        => $jk,
+          'ttl'        => $ttl,
+          'agama'        => $agama,
+          'alamat'        => $alamat,
+          'email'        => $email,
+          'telp'        => $telp,
+          'username'    => $username,
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'guru');
+
+      } else {
+        $where = array('id_guru' => $id );
+
+        $pass_baru = hash('sha512', $password);
+        $hash = password_hash($pass_baru, PASSWORD_DEFAULT);
+      
+        $data = array(
+          'nama'        => $nama,
+          'nip'        => $nip,
+          'jk'        => $jk,
+          'ttl'        => $ttl,
+          'agama'        => $agama,
+          'alamat'        => $alamat,
+          'email'        => $email,
+          'telp'        => $telp,
+          'username'    => $username,
+          'password'    => $hash,
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'guru');
+      }
+
+      $this->session->set_flashdata('message', '
+      <div class="alert alert-success"> Perubahan berhasil!
+      <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+      </div>
+      ');
+              
+      // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+      redirect(base_url('welcome/profil_guru'));
+  }
+
+    public function hasil_angket($kodekelas = '')
+	{
+        // mengambil data2 dari table admin
+        $data_angket = $this->m_data->tampil_data('angket')->result();
+        
+        $kelas = $this->db->get('kelas')->result();
+        // di parsing ke view
+        if ($kodekelas == '') {
+            $siswa = $this->db->get('siswa')->result();
+        } else {
+            $siswa = $this->m_data->select_where(array('kelas' => $kodekelas),'siswa')->result();
+        }
+
+        $data = array(
+            'siswa' => $siswa,
+            'angket' => $data_angket, 
+            'kelas' => $kelas,
+            'kodekelas' => $kodekelas,
+        );
+
+        // menampilkan view index
+		$this->load->view('hasil_angket',$data);
+    }
+
+    public function ambil_kelas()
+    {
+        global $date;
+        $db = get_instance()->db->conn_id;
+
+        // mysqli_real_escape_string anti injeksi
+        $kelas      = mysqli_real_escape_string($db, $this->input->post('kelas'));
+
+        // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+        redirect(base_url('welcome/hasil_angket/'.$kelas));
+    }
+
     public function angket()
 	{
         // mengambil data2 dari table admin

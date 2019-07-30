@@ -225,7 +225,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="nama">Jenis Kelamin</label>
                                     <div class="col-lg-7">
-                                    <select class="form-control" name="jk" required="true">
+                                    <select class="form-control" name="jk" >
                                         <option value="none" selected="" disabled="">Pilih Salah Satu</option>
                                         <option value="l">Laki-Laki</option>
                                         <option value="p">Perempuan</option>
@@ -235,7 +235,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="username">Tempat, Tgl Lahir</label>
                                     <div class="col-lg-7">
-                                        <input type="text" class="form-control" id="ttl" name="ttl" required>
+                                        <input type="text" class="form-control" id="ttl" name="ttl" >
                                     </div>
                                 </div>
                                 <div class="form-group row">
@@ -260,13 +260,13 @@
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="username">No. Telp.</label>
                                     <div class="col-lg-7">
-                                        <input type="text" class="form-control" id="telp" name="telp" required>
+                                        <input type="text" class="form-control" id="telp" name="telp" >
                                     </div>
                                 </div>
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="username">E-mail</label>
                                     <div class="col-lg-7">
-                                        <input type="email" class="form-control" id="email" name="email" required>
+                                        <input type="email" class="form-control" id="email" name="email" >
                                     </div>
                                 </div>
                                 <div class="form-group row">

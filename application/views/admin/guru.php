@@ -65,7 +65,7 @@
                                 <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">
                                         <input type="hidden" name="id" class="form-control" value="<?= $g->id_guru ?>">                     
                                         <div class="form-group row">
-                                    <label class="col-lg-4 col-form-label" for="nama">Nama Siswa</label>
+                                    <label class="col-lg-4 col-form-label" for="nama">Nama Guru</label>
                                     <div class="col-lg-7">
                                         <input type="text" class="form-control" id="nama" name="nama" value="<?= $g->nama ?>" required>
                                     </div>
@@ -132,7 +132,7 @@
                                 <div class="form-group row">
                                     <label class="col-lg-4 col-form-label" for="password">Password</label>
                                     <div class="col-lg-7">
-                                        <input type="password" class="form-control" id="password" name="password" required>
+                                        <input type="password" class="form-control" id="password" name="password" >
                                     </div>
                                 </div>
                                         <br>
