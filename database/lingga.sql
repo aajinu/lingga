@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Jul 30, 2019 at 08:10 PM
+-- Generation Time: Aug 04, 2019 at 09:50 PM
 -- Server version: 10.1.25-MariaDB
 -- PHP Version: 5.6.31
 
@@ -960,6 +960,71 @@ INSERT INTO `profil` (`id_profil`, `profil`, `visi`, `misi`) VALUES
 -- --------------------------------------------------------
 
 --
+-- Table structure for table `rpl`
+--
+
+CREATE TABLE `rpl` (
+  `id_rpl` int(11) NOT NULL,
+  `kl` text NOT NULL,
+  `bl` text NOT NULL,
+  `ttl` text NOT NULL,
+  `fl` text NOT NULL,
+  `tu` text NOT NULL,
+  `tk1` text NOT NULL,
+  `tk2` text NOT NULL,
+  `tk3` text NOT NULL,
+  `sl` text NOT NULL,
+  `ml1` text NOT NULL,
+  `ml2` text NOT NULL,
+  `ml3` text NOT NULL,
+  `waktu` text NOT NULL,
+  `sumber1` text NOT NULL,
+  `sumber2` text NOT NULL,
+  `sumber3` text NOT NULL,
+  `sumber4` text NOT NULL,
+  `mt` text NOT NULL,
+  `ma` text NOT NULL,
+  `pt1` text NOT NULL,
+  `pt2` text NOT NULL,
+  `pt3` text NOT NULL,
+  `pt4` text NOT NULL,
+  `pt5` text NOT NULL,
+  `pt6` text NOT NULL,
+  `pt7` text NOT NULL,
+  `pt8` text NOT NULL,
+  `kpd1` text NOT NULL,
+  `kpd2` text NOT NULL,
+  `kpd3` text NOT NULL,
+  `kpd4` text NOT NULL,
+  `kg1` text NOT NULL,
+  `kg2` text NOT NULL,
+  `tp1` text NOT NULL,
+  `tp2` text NOT NULL,
+  `ep1` text NOT NULL,
+  `ep2` text NOT NULL,
+  `ep3` text NOT NULL,
+  `ep4` text NOT NULL,
+  `eh1` text NOT NULL,
+  `eh2` text NOT NULL,
+  `eh3` text NOT NULL,
+  `eh4` text NOT NULL,
+  `judul` text NOT NULL,
+  `tahun` text NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+--
+-- Dumping data for table `rpl`
+--
+
+INSERT INTO `rpl` (`id_rpl`, `kl`, `bl`, `ttl`, `fl`, `tu`, `tk1`, `tk2`, `tk3`, `sl`, `ml1`, `ml2`, `ml3`, `waktu`, `sumber1`, `sumber2`, `sumber3`, `sumber4`, `mt`, `ma`, `pt1`, `pt2`, `pt3`, `pt4`, `pt5`, `pt6`, `pt7`, `pt8`, `kpd1`, `kpd2`, `kpd3`, `kpd4`, `kg1`, `kg2`, `tp1`, `tp2`, `ep1`, `ep2`, `ep3`, `ep4`, `eh1`, `eh2`, `eh3`, `eh4`, `judul`, `tahun`) VALUES
+(1, 'uhbniojbujb', 'iuboi', 'ubpu', 'bpouboub', 'ob', 'ub', 'iububoiuhpoioih', 'npoihopihoiho', 'ihoihoihoihoih', 'oihoihoiho', 'ihoihoihoihoih', 'oihoihoihoiho', 'ihoi', 'hoi', 'ho', 'ih', '', 'oihoihoihoiho', 'ihoihoihoihoihoihoi', 'hoihoihoihoihoi', 'hoihoihoi', 'hoihoihoih', 'oihoihoihoihoi', 'hoihoihoihoi', 'hoihiooiiohoih', 'iohihihiohioho', 'hhhohoh', 'hohoihoih', 'hhoihoihoi', 'hiohoihoiho', 'ihoihoihoihoih', 'oihohoihoih', 'oihoihoihoih', 'oihoihoihoih', 'oihoihoihoiho', 'ihoihoihoih', 'oihoihoihohoih', 'oiohiohhhoi', 'hiohoihoihoh', 'oihoihihoihoi', 'hiohohohoihoi', 'hiohoihoihio', 'hiohoihoih', 'BIMBINGAN KLASIKAL', '2019/2020'),
+(2, 'piojpijhpoih', 'oihoihoih', 'oihoihoihoih', 'oihoihoiho', 'ihoihoihoih', 'oihoihoihoih', 'oihoihoihoihoih', 'oihoihoihoih', 'oihoioihoihoi', 'hohohoihoho', 'hoihoihoihoihoi', 'hoihoihoihioo', 'ihoihoihoihoi', 'oihoihoihoihoi', 'hoihoih', 'ohoihoihoh', '', 'oioihoihoihoi', 'hoihoihohoihoihoihoi', 'hiohohoihoih', 'oihoihohoihohoiho', 'oihoihoihoihoihoihoihoih', 'oihoihoihoiho', 'hoihoihohoh', 'ohohohi', 'ohohoihoihoih', 'oihoihoihoihoh', 'oihoihoihoihoihoihoh', 'ihoihoihoi', 'oihoihoihoih', 'oihoihoihoih', 'oihoihoihoho', 'hoihohohohoh', 'ohohohohoiho', 'ihoihoihohoiho', 'oihoihoihoih', 'oihoihohoho', 'ihohohoho', 'iohoihoihoihoih', 'oihoihoiho', 'ihoihoihoih', 'ohohooho', 'hoihoihoiho', 'BIMBINGAN KELOMPOK', '2019/2020'),
+(3, 'oihoug9ugo', 'gogo7tg', '7gog87t7t', '8g', 'ug', 'ohoih', 'oihoihoihoih', 'oihoihoihoih', 'oihoihoihoih', 'oihoihoihoih', 'oihoihoihoihoih', 'oihoihoihoi', 'hoihoihoihoih', 'ohoihoihoihoi', 'hoihoihoih', 'oihoihoihoho', '', 'ihoihoihoiho', 'hoihoihohoh', 'oihohohoihoho', 'hohoihoihoihoihoi', 'hoihoihoihoho', 'oihoihoihoiho', 'hoihoihohh', 'oihoihoihoiho', 'ohoioihoihoih', 'oihoihoihohoih', 'ohohoihoioiho', 'ihoihoihoihohiho', 'oihohohoihoho', 'hohhohoihohoihoih', 'ihiohoihoihoihoih', 'ohohohohohoio', 'hoihoihoihoihoihoih', 'oihoihoihohoi', 'hoihoihoihoih', 'oihoihoihoihoih', 'oihoihhohohoihoi', 'hoihoihoihoihoih', 'oihoihoihoih', 'oihohoihhoih', 'oiho', 'ihoihoihoihoih', 'BIMBINGAN KELAS BESAR/LINTAS KELAS', '2019/2020'),
+(4, 'hubiiu', 'bilubiubiu', 'bubiou', 'biub', 'iubi', 'iu', 'biubi', 'ub', 'ubiub', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', '', 'BIMBINGAN INDIVIDUAL', '2019/2020');
+
+-- --------------------------------------------------------
+
+--
 -- Table structure for table `siswa`
 --
 
@@ -1091,6 +1156,12 @@ ALTER TABLE `profil`
   ADD PRIMARY KEY (`id_profil`);
 
 --
+-- Indexes for table `rpl`
+--
+ALTER TABLE `rpl`
+  ADD PRIMARY KEY (`id_rpl`);
+
+--
 -- Indexes for table `siswa`
 --
 ALTER TABLE `siswa`
@@ -1130,6 +1201,11 @@ ALTER TABLE `kelas`
 --
 ALTER TABLE `profil`
   MODIFY `id_profil` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+--
+-- AUTO_INCREMENT for table `rpl`
+--
+ALTER TABLE `rpl`
+  MODIFY `id_rpl` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 --
 -- AUTO_INCREMENT for table `siswa`
 --

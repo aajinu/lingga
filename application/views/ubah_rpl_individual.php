@@ -445,117 +445,103 @@
             <main id="main-container">
                 <!-- Page Content -->
             <div class="content">
-                <div class="block">
+                <?php echo $this->session->flashdata('message');?>
+                <div class="block">                
                         <div class="block-header block-header-default">
-                            <h3 class="block-title">Butir Angket</h3>                            
+                            <h3 class="block-title">Ubah RPL Klasikal</h3>                            
                         </div>
                         <div class="block-content">
-                            <div class="form-group">
-                                <button id="addToTable" class="btn btn-danger" data-toggle="modal" data-target="#con-close-modal">Tambah Butir Angket <i class="fa fa-plus"></i></button>
-                            </div>
-                        </div>
+                            <p>Lengkapi data di bawah ini.</p>
+                            <hr>
+                            <form action="<?= base_url('welcome/proses_individual') ?>" method="post" class="" enctype="multipart/form-data">
+                                <input type="hidden" name="<?php echo $this->security->get_csrf_token_name(); ?>" value="<?php echo $this->security->get_csrf_hash(); ?>">                                        
+                                <input type="hidden" name="id" class="form-control" value="<?= $klasikal->id_rpl ?>">  
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Judul</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" id="judul" name="judul" value="<?= $klasikal->judul ?>" required>
+                                    </div>
+                                </div>
 
-                        <div class="block-content">
-                        <table class="table table-bordered table-striped table-vcenter js-dataTable-full">
-                                <thead>
-                                    <tr>
-                                        <th class="text-center">No</th>
-                                        <th class="d-none d-sm-table-cell" >Butir Angket</th>
-                                        <th>Bidang</th>
-                                        <th>#</th>
-                                        <th>#</th>                                        
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                
-                                <?php $i=1; foreach ($angket as $a): ?>
-                                
-                                    <tr>
-                                        <td class="text-center"><?= $i ?></td>
-                                        <td class="d-none d-sm-table-cell"><?= $a->soal ?></td>
-                                        <td class="d-none d-sm-table-cell"><?= $a->bidang ?></td>
-                                        <td class="font-w600">
-                                            <button type="button" class="btn btn-alt-primary" data-toggle="modal" data-target="#modal-default<?= $a->id_angket ?>">
-                                                Edit
-                                            </button>
-                                        </td>
-                                        <td class="font-w600"><a href="<?= base_url('welcome/hapus_angket/'.$a->id_angket) ?>" onclick="return confirm('hapus ?')" class="btn btn-alt-danger">Hapus</a></td>
-                                        
-                                    </tr>
-                                <?php $i++; endforeach ?>
-                                </tbody>
-                            </table> 
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Tahun</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="tahun" value="<?= $klasikal->tahun ?>" required>
+                                    </div>
+                                </div>
 
-                        </div>
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Nama Konseli</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="kl" value="<?= $klasikal->kl ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Kelas/Semester</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="bl" value="<?= $klasikal->bl ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Hari, Tanggal</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="ttl" value="<?= $klasikal->ttl ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Pertemuan Ke-</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="fl" value="<?= $klasikal->fl ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Waktu</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="tu" value="<?= $klasikal->tu ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Tempat</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="sl" value="<?= $klasikal->sl ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Gejala yang nampak/Keluhan 1</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="tk1" value="<?= $klasikal->tk1 ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Gejala yang nampak/Keluhan 2</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="tk2" value="<?= $klasikal->tk2 ?>" required>
+                                    </div>
+                                </div>
+
+                                <div class="form-group row">
+                                    <label class="col-lg-4 col-form-label" for="nama">Gejala yang nampak/Keluhan 3</label>
+                                    <div class="col-lg-7">
+                                        <input type="text" class="form-control" name="tk3" value="<?= $klasikal->tk3 ?>" required>
+                                    </div>
+                                </div>
+
+                                        <br>
+                                        <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
+                                        <div class="form-group">
+                                            <button type="submit" class="btn btn-alt-primary">Save</button>
+                                        </div>
+                                </form>
+                        </div>              
+
                         
-                        <?php foreach ($angket as $a): ?>    
-                        <div class="modal fade" id="modal-default<?= $a->id_angket ?>">                        
-                        <div class="modal-dialog">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                            <h4 class="modal-title">Edit Butir Angket</h4>
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                                <span aria-hidden="true">&times;</span></button>
-                                
-                            </div>
-                            <div class="modal-body">
-                            <form action="<?= base_url('welcome/ubah_angket') ?>" method="post" class="" enctype="multipart/form-data">
-                                    <input type="hidden" name="id" class="form-control" value="<?= $a->id_angket ?>">                     
-                                    <label for="side-overlay-profile-email">Butir Angket</label>
-                                    <div class="input-group">
-                                        <textarea class="form-control" name="soal" placeholder="" value="" ><?= $a->soal ?></textarea>
-                                    </div>
-                                    <label for="side-overlay-profile-email">Bidang</label>
-                                    <select class="form-control" name="bidang" required="true">
-                                        <option value="none" selected="" disabled="">Pilih Salah Satu</option>
-                                        <option value="pribadi">Pribadi</option>
-                                        <option value="sosial">Sosial</option>
-                                        <option value="belajar">Belajar</option>
-                                        <option value="karir">Karir</option>
-                                    </select><br>
-                                    <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-alt-primary">Save</button>
-                                    </div>
-                            </form>
-                            </div>
-                            
-                            </div>
-                            <!-- /.modal-content -->
-                        </div>
-                        <!-- /.modal-dialog -->
-                        </div>
-                        <?php endforeach ?>
-                        <!-- /.modal -->
-
-                        <div id="con-close-modal" class="modal fade" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" style="display: none;">
-                            <div class="modal-dialog"> 
-                                <div class="modal-content"> 
-                                    <div class="modal-header">                                        
-                                        <h4 class="modal-title">Tambah Butir Angket</h4> 
-                                        <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button> 
-                                    </div> 
-                                    <div class="block-content">
-                            <form action="<?= base_url('welcome/tambah_angket') ?>" method="post" class="form-group" enctype="multipart/form-data">
-                                                        
-                                    <label for="side-overlay-profile-email">Butir Angket</label>
-                                    <div class="input-group">
-                                        <textarea class="form-control" name="soal" placeholder="" value="" required="true"></textarea>
-                                    </div>
-                                    <label for="side-overlay-profile-email">Bidang</label>
-                                    <select class="form-control" name="bidang" required="true">
-                                        <option value="none" selected="" disabled="">Pilih Salah Satu</option>
-                                        <option value="pribadi">Pribadi</option>
-                                        <option value="sosial">Sosial</option>
-                                        <option value="belajar">Belajar</option>
-                                        <option value="karir">Karir</option>
-                                    </select><br>
-                                    <input type="hidden" name="<?=$this->security->get_csrf_token_name();?>" value="<?=$this->security->get_csrf_hash();?>" style="display: none">
-                                    <div class="form-group">
-                                        <button type="submit" class="btn btn-alt-primary">Tambah</button>
-                                    </div>
-                            </form>
-                        </div>
                             </div>
                         </div>
                         

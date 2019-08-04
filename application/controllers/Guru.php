@@ -32,6 +32,96 @@ class Guru extends CI_Controller {
         }
     }
 
+    public function rpl_klasikal()
+	{
+        if ($this->session->userdata('status') != "loginguru"){
+            redirect(base_url('siswa'));
+        } else {
+            // mengambil data2 dari table admin
+            $admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $klasikal = $this->m_data->select_where(array('id_rpl' => "1"),'rpl')->row();
+
+            // di parsing ke view
+            $data = array(
+                'admin' => $admin, 
+                'profil' => $data_profil, 
+                'klasikal' => $klasikal, 
+
+            );
+
+            $this->load->view('guru/header',$data);
+            $this->load->view('guru/rpl_klasikal',$data);
+            $this->load->view('guru/footer',$data);
+        }
+    }
+
+    public function rpl_kelompok()
+	{
+        if ($this->session->userdata('status') != "loginguru"){
+            redirect(base_url('siswa'));
+        } else {
+            // mengambil data2 dari table admin
+            $data_admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $klasikal = $this->m_data->select_where(array('id_rpl' => "2"),'rpl')->row();
+            // di parsing ke view
+            $data = array(
+                'admin' => $data_admin, 
+                'profil' => $data_profil,
+                'klasikal' => $klasikal, 
+            );
+
+            $this->load->view('guru/header',$data);
+            $this->load->view('guru/rpl_kelompok',$data);
+            $this->load->view('guru/footer',$data);
+        }
+    }
+
+    public function rpl_kelas_besar()
+	{
+        if ($this->session->userdata('status') != "loginguru"){
+            redirect(base_url('siswa'));
+        } else {
+            // mengambil data2 dari table admin
+            $data_admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $klasikal = $this->m_data->select_where(array('id_rpl' => "3"),'rpl')->row();
+            // di parsing ke view
+            $data = array(
+                'admin' => $data_admin, 
+                'profil' => $data_profil, 
+                'klasikal' => $klasikal,
+            );
+
+            $this->load->view('guru/header',$data);
+            $this->load->view('guru/rpl_kelas_besar',$data);
+            $this->load->view('guru/footer',$data);
+        }
+    }
+
+    public function rpl_individu()
+	{
+        if ($this->session->userdata('status') != "loginguru"){
+            redirect(base_url('siswa'));
+        } else {
+            // mengambil data2 dari table admin
+            $data_admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $klasikal = $this->m_data->select_where(array('id_rpl' => "4"),'rpl')->row();
+            // di parsing ke view
+            $data = array(
+                'admin' => $data_admin, 
+                'profil' => $data_profil, 
+                'klasikal' => $klasikal,
+            );
+
+            $this->load->view('guru/header',$data);
+            $this->load->view('guru/rpl_individu',$data);
+            $this->load->view('guru/footer',$data);
+        }
+    }
+
     public function profil_saya()
 	{
         if ($this->session->userdata('status') != "loginsiswa"){

@@ -58,21 +58,10 @@
                                             RPL
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="<?= base_url('welcome/hasil_angket'); ?>" style="color:black;">RPL Individu</a>
-                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">RPL Kelompok</a>
-                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">RPL Klasikal</a>
-                                            <a class="dropdown-item" href="single-blog.html" style="color:black;"></a>
-                                        </div>
-                                    </li>
-
-                                    <li class="nav-item dropdown">
-                                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" style="color:#FF8C00; font-size:18px;">
-                                            Program
-                                        </a>
-                                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                                            <a class="dropdown-item" href="<?= base_url('welcome/hasil_angket'); ?>" style="color:black;">Semester Ganjil</a>
-                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">Semester Genap</a>
-                                            <a class="dropdown-item" href="<?= base_url('welcome/angket'); ?>" style="color:black;">Jadwal Pembelajaran</a>
+                                            <a class="dropdown-item" href="<?= base_url('guru/rpl_individu'); ?>" style="color:black;">RPL Individual</a>
+                                            <a class="dropdown-item" href="<?= base_url('guru/rpl_kelompok'); ?>" style="color:black;">RPL Kelompok</a>
+                                            <a class="dropdown-item" href="<?= base_url('guru/rpl_klasikal'); ?>" style="color:black;">RPL Klasikal</a>
+                                            <a class="dropdown-item" href="<?= base_url('guru/rpl_kelas_besar'); ?>" style="color:black;">RPL Kelas Besar</a>
                                             <a class="dropdown-item" href="single-blog.html" style="color:black;"></a>
                                         </div>
                                     </li>
@@ -82,6 +71,7 @@
                                             Setting
                                         </a>
                                         <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                            <a class="dropdown-item" href="<?= base_url('welcome/ubah_rpl_individual'); ?>" style="color:black;">Ubah RPL</a>                                            
                                             <a class="dropdown-item" href="<?= base_url('welcome/profil_guru'); ?>" style="color:black;">Profil Guru</a>                                            
                                             <a class="dropdown-item" href="<?= base_url('welcome/logout'); ?>" style="color:black;">Logout</a>
                                         </div>

@@ -313,6 +313,490 @@ class Welcome extends CI_Controller {
       redirect(base_url('welcome/profil_guru'));
   }
 
+  public function ubah_rpl_klasikal()
+	{
+        if ($this->session->userdata('status') != "loginguru"){
+            redirect(base_url('siswa'));
+        } else {
+            // mengambil data2 dari table admin
+            $admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $klasikal = $this->m_data->select_where(array('id_rpl' => "1"),'rpl')->row();
+
+            // di parsing ke view
+            $data = array(
+                'admin' => $admin, 
+                'profil' => $data_profil, 
+                'klasikal' => $klasikal, 
+
+            );
+
+            
+            $this->load->view('ubah_rpl_klasikal',$data);
+            
+        }
+    }
+
+    public function ubah_rpl_kelompok()
+	{
+        if ($this->session->userdata('status') != "loginguru"){
+            redirect(base_url('siswa'));
+        } else {
+            // mengambil data2 dari table admin
+            $data_admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $klasikal = $this->m_data->select_where(array('id_rpl' => "2"),'rpl')->row();
+
+            // di parsing ke view
+            $data = array(
+                'admin' => $data_admin, 
+                'profil' => $data_profil, 
+                'klasikal' => $klasikal, 
+
+            );
+
+            
+            $this->load->view('ubah_rpl_kelompok',$data);
+            
+        }
+    }
+
+    public function ubah_rpl_kelas_besar()
+	{
+        if ($this->session->userdata('status') != "loginguru"){
+            redirect(base_url('siswa'));
+        } else {
+            // mengambil data2 dari table admin
+            $data_admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $klasikal = $this->m_data->select_where(array('id_rpl' => "3"),'rpl')->row();
+
+            // di parsing ke view
+            $data = array(
+                'admin' => $data_admin, 
+                'profil' => $data_profil, 
+                'klasikal' => $klasikal, 
+
+            );
+
+            
+            $this->load->view('ubah_rpl_kelas_besar',$data);
+            
+        }
+    }
+
+    public function ubah_rpl_individual()
+	{
+        if ($this->session->userdata('status') != "loginguru"){
+            redirect(base_url('siswa'));
+        } else {
+            // mengambil data2 dari table admin
+            $data_admin = $this->m_data->tampil_data('admin')->result();
+            $data_profil = $this->m_data->tampil_data('profil')->result();
+            $klasikal = $this->m_data->select_where(array('id_rpl' => "4"),'rpl')->row();
+
+            // di parsing ke view
+            $data = array(
+                'admin' => $data_admin, 
+                'profil' => $data_profil, 
+                'klasikal' => $klasikal, 
+
+            );
+
+            
+            $this->load->view('ubah_rpl_individual',$data);
+            
+        }
+    }
+
+    public function proses_individual()
+    {
+       
+        $db = get_instance()->db->conn_id;
+
+        // mysqli_real_escape_string anti injeksi
+        $id         = mysqli_real_escape_string($db, $this->input->post('id'));
+        $judul      = mysqli_real_escape_string($db, $this->input->post('judul'));
+        $tahun        = mysqli_real_escape_string($db, $this->input->post('tahun'));
+        $kl        = mysqli_real_escape_string($db, $this->input->post('kl'));
+        $bl        = mysqli_real_escape_string($db, $this->input->post('bl'));
+        $ttl        = mysqli_real_escape_string($db, $this->input->post('ttl'));
+        $fl        = mysqli_real_escape_string($db, $this->input->post('fl'));
+        $tu        = mysqli_real_escape_string($db, $this->input->post('tu'));
+        $tk1        = mysqli_real_escape_string($db, $this->input->post('tk1'));
+        $tk2        = mysqli_real_escape_string($db, $this->input->post('tk2'));
+        $tk3        = mysqli_real_escape_string($db, $this->input->post('tk3'));
+        $sl        = mysqli_real_escape_string($db, $this->input->post('sl'));
+                
+        $where = array('id_rpl' => $id );
+        
+        $data = array(             
+            'judul'   =>  $judul,
+            'tahun'   =>   $tahun,
+            'kl'   =>   $kl,
+            'bl'    =>   $bl,
+            'ttl'    =>   $ttl,
+            'fl'    =>   $fl,
+            'tu'      =>   $tu,
+            'tk1'      =>   $tk1,
+            'tk2'      =>   $tk2,
+            'tk3'      =>   $tk3,
+            'sl'      =>   $sl,        
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'rpl');
+        $this->session->set_flashdata('message', '
+        <div class="alert alert-success"> Perubahan berhasil!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        ');
+        // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+        redirect(base_url('welcome/ubah_rpl_individual'));
+    }
+
+    public function proses_klasikal()
+    {
+       
+        $db = get_instance()->db->conn_id;
+
+        // mysqli_real_escape_string anti injeksi
+        $id         = mysqli_real_escape_string($db, $this->input->post('id'));
+        $judul      = mysqli_real_escape_string($db, $this->input->post('judul'));
+        $tahun        = mysqli_real_escape_string($db, $this->input->post('tahun'));
+        $kl        = mysqli_real_escape_string($db, $this->input->post('kl'));
+        $bl        = mysqli_real_escape_string($db, $this->input->post('bl'));
+        $ttl        = mysqli_real_escape_string($db, $this->input->post('ttl'));
+        $fl        = mysqli_real_escape_string($db, $this->input->post('fl'));
+        $tu        = mysqli_real_escape_string($db, $this->input->post('tu'));
+        $tk1        = mysqli_real_escape_string($db, $this->input->post('tk1'));
+        $tk2        = mysqli_real_escape_string($db, $this->input->post('tk2'));
+        $tk3        = mysqli_real_escape_string($db, $this->input->post('tk3'));
+        $sl        = mysqli_real_escape_string($db, $this->input->post('sl'));
+        $ml1        = mysqli_real_escape_string($db, $this->input->post('ml1'));
+        $ml2       = mysqli_real_escape_string($db, $this->input->post('ml2'));
+        $ml3        = mysqli_real_escape_string($db, $this->input->post('ml3'));
+        $waktu        = mysqli_real_escape_string($db, $this->input->post('waktu'));
+        $sumber1        = mysqli_real_escape_string($db, $this->input->post('sumber1'));
+        $sumber2        = mysqli_real_escape_string($db, $this->input->post('sumber2'));
+        $sumber3        = mysqli_real_escape_string($db, $this->input->post('sumber3'));
+        $sumber4        = mysqli_real_escape_string($db, $this->input->post('sumber4'));
+        $mt        = mysqli_real_escape_string($db, $this->input->post('mt'));
+        $ma        = mysqli_real_escape_string($db, $this->input->post('ma'));
+        $pt1        = mysqli_real_escape_string($db, $this->input->post('pt1'));
+        $pt2        = mysqli_real_escape_string($db, $this->input->post('pt2'));
+        $pt3        = mysqli_real_escape_string($db, $this->input->post('pt3'));
+        $pt4        = mysqli_real_escape_string($db, $this->input->post('pt4'));
+        $pt5        = mysqli_real_escape_string($db, $this->input->post('pt5'));
+        $pt6        = mysqli_real_escape_string($db, $this->input->post('pt6'));
+        $pt7        = mysqli_real_escape_string($db, $this->input->post('pt7'));
+        $pt8        = mysqli_real_escape_string($db, $this->input->post('pt8'));
+        $kpd1        = mysqli_real_escape_string($db, $this->input->post('kpd1'));
+        $kpd2        = mysqli_real_escape_string($db, $this->input->post('kpd2'));
+        $kpd3        = mysqli_real_escape_string($db, $this->input->post('kpd3'));
+        $kpd4        = mysqli_real_escape_string($db, $this->input->post('kpd4'));
+        $kg1        = mysqli_real_escape_string($db, $this->input->post('kg1'));
+        $kg2        = mysqli_real_escape_string($db, $this->input->post('kg2'));
+        $tp1        = mysqli_real_escape_string($db, $this->input->post('tp1'));
+        $tp2        = mysqli_real_escape_string($db, $this->input->post('tp2'));
+        $ep1        = mysqli_real_escape_string($db, $this->input->post('ep1'));
+        $ep2        = mysqli_real_escape_string($db, $this->input->post('ep2'));
+        $ep3        = mysqli_real_escape_string($db, $this->input->post('ep3'));
+        $ep4        = mysqli_real_escape_string($db, $this->input->post('ep4'));
+        $eh1        = mysqli_real_escape_string($db, $this->input->post('eh1'));
+        $eh2        = mysqli_real_escape_string($db, $this->input->post('eh2'));
+        $eh3        = mysqli_real_escape_string($db, $this->input->post('eh3'));
+        $eh4        = mysqli_real_escape_string($db, $this->input->post('eh4'));
+                
+        $where = array('id_rpl' => $id );
+        
+        $data = array(             
+            'judul'   =>  $judul,
+            'tahun'   =>   $tahun,
+            'kl'   =>   $kl,
+            'bl'    =>   $bl,
+            'ttl'    =>   $ttl,
+            'fl'    =>   $fl,
+            'tu'      =>   $tu,
+            'tk1'      =>   $tk1,
+            'tk2'      =>   $tk2,
+            'tk3'      =>   $tk3,
+            'sl'      =>   $sl,
+            'ml1'      =>   $ml1,
+            'ml2'      =>   $ml2,
+            'ml3'      =>   $ml3,
+            'waktu'      =>   $waktu,
+            'sumber1'       =>   $sumber1,
+            'sumber2'       =>   $sumber2,
+            'sumber3'       =>   $sumber3,
+            'sumber4'       =>   $sumber4,
+            'mt'       =>   $mt,
+            'ma'       =>   $ma,
+            'pt1'       =>   $pt1,
+            'pt2'      =>   $pt2,
+            'pt3'       =>   $pt3,
+            'pt4'        =>   $pt4,
+            'pt5'       =>   $pt5,
+            'pt6'       =>   $pt6,
+            'pt7'       =>   $pt7,
+            'pt8'       =>   $pt8,
+            'kpd1'      =>   $kpd1,
+            'kpd2'      =>   $kpd2,
+            'kpd3'      =>   $kpd3,
+            'kpd4'      =>   $kpd4,
+            'kg1'      =>   $kg1,
+            'kg2'      =>   $kg2,
+            'tp1'      =>   $tp1,
+            'tp2'      =>   $tp2,
+            'ep1'     =>   $ep1,
+            'ep2'      =>   $ep2,
+            'ep3'      =>   $ep3,
+            'ep4'      =>   $ep4,
+            'eh1'      =>   $eh1,
+            'eh2'      =>   $eh2,
+            'eh3'      =>   $eh3,
+            'eh4'     =>   $eh4,          
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'rpl');
+        $this->session->set_flashdata('message', '
+        <div class="alert alert-success"> Perubahan berhasil!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        ');
+        // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+        redirect(base_url('welcome/ubah_rpl_klasikal'));
+    }
+
+    public function proses_kelompok()
+    {
+       
+        $db = get_instance()->db->conn_id;
+
+        // mysqli_real_escape_string anti injeksi
+        $id         = mysqli_real_escape_string($db, $this->input->post('id'));
+        $judul      = mysqli_real_escape_string($db, $this->input->post('judul'));
+        $tahun        = mysqli_real_escape_string($db, $this->input->post('tahun'));
+        $kl        = mysqli_real_escape_string($db, $this->input->post('kl'));
+        $bl        = mysqli_real_escape_string($db, $this->input->post('bl'));
+        $ttl        = mysqli_real_escape_string($db, $this->input->post('ttl'));
+        $fl        = mysqli_real_escape_string($db, $this->input->post('fl'));
+        $tu        = mysqli_real_escape_string($db, $this->input->post('tu'));
+        $tk1        = mysqli_real_escape_string($db, $this->input->post('tk1'));
+        $tk2        = mysqli_real_escape_string($db, $this->input->post('tk2'));
+        $tk3        = mysqli_real_escape_string($db, $this->input->post('tk3'));
+        $sl        = mysqli_real_escape_string($db, $this->input->post('sl'));
+        $ml1        = mysqli_real_escape_string($db, $this->input->post('ml1'));
+        $ml2       = mysqli_real_escape_string($db, $this->input->post('ml2'));
+        $ml3        = mysqli_real_escape_string($db, $this->input->post('ml3'));
+        $waktu        = mysqli_real_escape_string($db, $this->input->post('waktu'));
+        $sumber1        = mysqli_real_escape_string($db, $this->input->post('sumber1'));
+        $sumber2        = mysqli_real_escape_string($db, $this->input->post('sumber2'));
+        $sumber3        = mysqli_real_escape_string($db, $this->input->post('sumber3'));
+        $sumber4        = mysqli_real_escape_string($db, $this->input->post('sumber4'));
+        $mt        = mysqli_real_escape_string($db, $this->input->post('mt'));
+        $ma        = mysqli_real_escape_string($db, $this->input->post('ma'));
+        $pt1        = mysqli_real_escape_string($db, $this->input->post('pt1'));
+        $pt2        = mysqli_real_escape_string($db, $this->input->post('pt2'));
+        $pt3        = mysqli_real_escape_string($db, $this->input->post('pt3'));
+        $pt4        = mysqli_real_escape_string($db, $this->input->post('pt4'));
+        $pt5        = mysqli_real_escape_string($db, $this->input->post('pt5'));
+        $pt6        = mysqli_real_escape_string($db, $this->input->post('pt6'));
+        $pt7        = mysqli_real_escape_string($db, $this->input->post('pt7'));
+        $pt8        = mysqli_real_escape_string($db, $this->input->post('pt8'));
+        $kpd1        = mysqli_real_escape_string($db, $this->input->post('kpd1'));
+        $kpd2        = mysqli_real_escape_string($db, $this->input->post('kpd2'));
+        $kpd3        = mysqli_real_escape_string($db, $this->input->post('kpd3'));
+        $kpd4        = mysqli_real_escape_string($db, $this->input->post('kpd4'));
+        $kg1        = mysqli_real_escape_string($db, $this->input->post('kg1'));
+        $kg2        = mysqli_real_escape_string($db, $this->input->post('kg2'));
+        $tp1        = mysqli_real_escape_string($db, $this->input->post('tp1'));
+        $tp2        = mysqli_real_escape_string($db, $this->input->post('tp2'));
+        $ep1        = mysqli_real_escape_string($db, $this->input->post('ep1'));
+        $ep2        = mysqli_real_escape_string($db, $this->input->post('ep2'));
+        $ep3        = mysqli_real_escape_string($db, $this->input->post('ep3'));
+        $ep4        = mysqli_real_escape_string($db, $this->input->post('ep4'));
+        $eh1        = mysqli_real_escape_string($db, $this->input->post('eh1'));
+        $eh2        = mysqli_real_escape_string($db, $this->input->post('eh2'));
+        $eh3        = mysqli_real_escape_string($db, $this->input->post('eh3'));
+        $eh4        = mysqli_real_escape_string($db, $this->input->post('eh4'));
+                
+        $where = array('id_rpl' => $id );
+        
+        $data = array(             
+            'judul'   =>  $judul,
+            'tahun'   =>   $tahun,
+            'kl'   =>   $kl,
+            'bl'    =>   $bl,
+            'ttl'    =>   $ttl,
+            'fl'    =>   $fl,
+            'tu'      =>   $tu,
+            'tk1'      =>   $tk1,
+            'tk2'      =>   $tk2,
+            'tk3'      =>   $tk3,
+            'sl'      =>   $sl,
+            'ml1'      =>   $ml1,
+            'ml2'      =>   $ml2,
+            'ml3'      =>   $ml3,
+            'waktu'      =>   $waktu,
+            'sumber1'       =>   $sumber1,
+            'sumber2'       =>   $sumber2,
+            'sumber3'       =>   $sumber3,
+            'sumber4'       =>   $sumber4,
+            'mt'       =>   $mt,
+            'ma'       =>   $ma,
+            'pt1'       =>   $pt1,
+            'pt2'      =>   $pt2,
+            'pt3'       =>   $pt3,
+            'pt4'        =>   $pt4,
+            'pt5'       =>   $pt5,
+            'pt6'       =>   $pt6,
+            'pt7'       =>   $pt7,
+            'pt8'       =>   $pt8,
+            'kpd1'      =>   $kpd1,
+            'kpd2'      =>   $kpd2,
+            'kpd3'      =>   $kpd3,
+            'kpd4'      =>   $kpd4,
+            'kg1'      =>   $kg1,
+            'kg2'      =>   $kg2,
+            'tp1'      =>   $tp1,
+            'tp2'      =>   $tp2,
+            'ep1'     =>   $ep1,
+            'ep2'      =>   $ep2,
+            'ep3'      =>   $ep3,
+            'ep4'      =>   $ep4,
+            'eh1'      =>   $eh1,
+            'eh2'      =>   $eh2,
+            'eh3'      =>   $eh3,
+            'eh4'     =>   $eh4,          
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'rpl');
+        $this->session->set_flashdata('message', '
+        <div class="alert alert-success"> Perubahan berhasil!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        ');
+        // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+        redirect(base_url('welcome/ubah_rpl_kelompok'));
+    }
+
+    public function proses_kelas_besar()
+    {
+       
+        $db = get_instance()->db->conn_id;
+
+        // mysqli_real_escape_string anti injeksi
+        $id         = mysqli_real_escape_string($db, $this->input->post('id'));
+        $judul      = mysqli_real_escape_string($db, $this->input->post('judul'));
+        $tahun        = mysqli_real_escape_string($db, $this->input->post('tahun'));
+        $kl        = mysqli_real_escape_string($db, $this->input->post('kl'));
+        $bl        = mysqli_real_escape_string($db, $this->input->post('bl'));
+        $ttl        = mysqli_real_escape_string($db, $this->input->post('ttl'));
+        $fl        = mysqli_real_escape_string($db, $this->input->post('fl'));
+        $tu        = mysqli_real_escape_string($db, $this->input->post('tu'));
+        $tk1        = mysqli_real_escape_string($db, $this->input->post('tk1'));
+        $tk2        = mysqli_real_escape_string($db, $this->input->post('tk2'));
+        $tk3        = mysqli_real_escape_string($db, $this->input->post('tk3'));
+        $sl        = mysqli_real_escape_string($db, $this->input->post('sl'));
+        $ml1        = mysqli_real_escape_string($db, $this->input->post('ml1'));
+        $ml2       = mysqli_real_escape_string($db, $this->input->post('ml2'));
+        $ml3        = mysqli_real_escape_string($db, $this->input->post('ml3'));
+        $waktu        = mysqli_real_escape_string($db, $this->input->post('waktu'));
+        $sumber1        = mysqli_real_escape_string($db, $this->input->post('sumber1'));
+        $sumber2        = mysqli_real_escape_string($db, $this->input->post('sumber2'));
+        $sumber3        = mysqli_real_escape_string($db, $this->input->post('sumber3'));
+        $sumber4        = mysqli_real_escape_string($db, $this->input->post('sumber4'));
+        $mt        = mysqli_real_escape_string($db, $this->input->post('mt'));
+        $ma        = mysqli_real_escape_string($db, $this->input->post('ma'));
+        $pt1        = mysqli_real_escape_string($db, $this->input->post('pt1'));
+        $pt2        = mysqli_real_escape_string($db, $this->input->post('pt2'));
+        $pt3        = mysqli_real_escape_string($db, $this->input->post('pt3'));
+        $pt4        = mysqli_real_escape_string($db, $this->input->post('pt4'));
+        $pt5        = mysqli_real_escape_string($db, $this->input->post('pt5'));
+        $pt6        = mysqli_real_escape_string($db, $this->input->post('pt6'));
+        $pt7        = mysqli_real_escape_string($db, $this->input->post('pt7'));
+        $pt8        = mysqli_real_escape_string($db, $this->input->post('pt8'));
+        $kpd1        = mysqli_real_escape_string($db, $this->input->post('kpd1'));
+        $kpd2        = mysqli_real_escape_string($db, $this->input->post('kpd2'));
+        $kpd3        = mysqli_real_escape_string($db, $this->input->post('kpd3'));
+        $kpd4        = mysqli_real_escape_string($db, $this->input->post('kpd4'));
+        $kg1        = mysqli_real_escape_string($db, $this->input->post('kg1'));
+        $kg2        = mysqli_real_escape_string($db, $this->input->post('kg2'));
+        $tp1        = mysqli_real_escape_string($db, $this->input->post('tp1'));
+        $tp2        = mysqli_real_escape_string($db, $this->input->post('tp2'));
+        $ep1        = mysqli_real_escape_string($db, $this->input->post('ep1'));
+        $ep2        = mysqli_real_escape_string($db, $this->input->post('ep2'));
+        $ep3        = mysqli_real_escape_string($db, $this->input->post('ep3'));
+        $ep4        = mysqli_real_escape_string($db, $this->input->post('ep4'));
+        $eh1        = mysqli_real_escape_string($db, $this->input->post('eh1'));
+        $eh2        = mysqli_real_escape_string($db, $this->input->post('eh2'));
+        $eh3        = mysqli_real_escape_string($db, $this->input->post('eh3'));
+        $eh4        = mysqli_real_escape_string($db, $this->input->post('eh4'));
+                
+        $where = array('id_rpl' => $id );
+        
+        $data = array(             
+            'judul'   =>  $judul,
+            'tahun'   =>   $tahun,
+            'kl'   =>   $kl,
+            'bl'    =>   $bl,
+            'ttl'    =>   $ttl,
+            'fl'    =>   $fl,
+            'tu'      =>   $tu,
+            'tk1'      =>   $tk1,
+            'tk2'      =>   $tk2,
+            'tk3'      =>   $tk3,
+            'sl'      =>   $sl,
+            'ml1'      =>   $ml1,
+            'ml2'      =>   $ml2,
+            'ml3'      =>   $ml3,
+            'waktu'      =>   $waktu,
+            'sumber1'       =>   $sumber1,
+            'sumber2'       =>   $sumber2,
+            'sumber3'       =>   $sumber3,
+            'sumber4'       =>   $sumber4,
+            'mt'       =>   $mt,
+            'ma'       =>   $ma,
+            'pt1'       =>   $pt1,
+            'pt2'      =>   $pt2,
+            'pt3'       =>   $pt3,
+            'pt4'        =>   $pt4,
+            'pt5'       =>   $pt5,
+            'pt6'       =>   $pt6,
+            'pt7'       =>   $pt7,
+            'pt8'       =>   $pt8,
+            'kpd1'      =>   $kpd1,
+            'kpd2'      =>   $kpd2,
+            'kpd3'      =>   $kpd3,
+            'kpd4'      =>   $kpd4,
+            'kg1'      =>   $kg1,
+            'kg2'      =>   $kg2,
+            'tp1'      =>   $tp1,
+            'tp2'      =>   $tp2,
+            'ep1'     =>   $ep1,
+            'ep2'      =>   $ep2,
+            'ep3'      =>   $ep3,
+            'ep4'      =>   $ep4,
+            'eh1'      =>   $eh1,
+            'eh2'      =>   $eh2,
+            'eh3'      =>   $eh3,
+            'eh4'     =>   $eh4,          
+        );
+
+        // ===== input data ke tabel =====             
+        $this->m_data->update_data($where,$data,'rpl');
+        $this->session->set_flashdata('message', '
+        <div class="alert alert-success"> Perubahan berhasil!
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close"> <span aria-hidden="true">×</span> </button>
+        </div>
+        ');
+        // setelah berhasil di redirect ke controller welcome (kalo cuma manggil controllernya brti default functionnya index)
+        redirect(base_url('welcome/ubah_rpl_kelas_besar'));
+    }
+
     public function hasil_angket($kodekelas = '')
 	{
         // mengambil data2 dari table admin
