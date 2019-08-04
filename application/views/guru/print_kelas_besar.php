@@ -1,15 +1,3 @@
-
-
-   <section id="content">
-  <div class="container">
-    <div class="row">
-	  </div>
-<!--slider-->
-      <div class="col-lg-12 col-md-12 col-sm-12">
-        <div class="middle_content">
-        
-			<br><h3><center><b></b></center></h3>
-
 <table style="width:100%" border="1">
   <tr>
     <th colspan="5" align=center valign=center><center>RENCANA PELAKSANAAN LAYANAN (RPL)</center></th>
@@ -207,15 +195,4 @@
   <tr>
     <td><?= $klasikal->eh4 ?></td>
   </tr>
-</table><br>
-<div class="form-group">
-    <button class="btn btn-success"><a style="color:black;" href="<?= base_url('guru/print_kelas_besar'); ?>" >Print</a></button>
-</div>
-      </div>
-    </div>
-   </div>
-</div>
-</section><br><br><br><br>
-
-    
-    
+</table>

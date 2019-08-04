@@ -61,10 +61,7 @@
   <tr>    
     <td><?= $klasikal->tk3 ?></td>
   </tr>
-</table><br>
-<div class="form-group">
-    <button class="btn btn-success"><a style="color:black;" href="<?= base_url('guru/print_individu'); ?>" >Print</a></button>
-</div>
+</table>
       </div>
     </div>
    </div>

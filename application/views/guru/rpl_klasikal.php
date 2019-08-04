@@ -208,7 +208,10 @@
     <td><?= $klasikal->eh4 ?></td>
   </tr>
 </table>
-
+<br>
+<div class="form-group">
+    <button class="btn btn-success"><a style="color:black;" href="<?= base_url('guru/print_klasikal'); ?>" >Print</a></button>
+</div>
       </div>
     </div>
    </div>
