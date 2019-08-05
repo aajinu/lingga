@@ -1,4 +1,6 @@
-
+<script>
+window.onload = function() { window.print(); }
+</script>
 
    <section id="content">
   <div class="container">

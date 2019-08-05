@@ -214,6 +214,11 @@ class Siswa extends CI_Controller {
             $x++;
             }
 
+            $hitung_pribadi = $this->m_data->select_where(array('bidang' => 'pribadi'),'angket')->num_rows();
+            $hitung_sosial = $this->m_data->select_where(array('bidang' => 'sosial'),'angket')->num_rows();
+            $hitung_belajar = $this->m_data->select_where(array('bidang' => 'belajar'),'angket')->num_rows();
+            $hitung_karir = $this->m_data->select_where(array('bidang' => 'karir'),'angket')->num_rows();
+
             $id_user = $this->session->userdata('id_siswa');
             $cari = $this->m_data->select_where(array('id_siswa' => $id_user,'pilihan'=>1,'bidang'=>$id_bidang),'angket_pilihan')->num_rows();
 
@@ -242,7 +247,7 @@ class Siswa extends CI_Controller {
                 $where = array('id_siswa' => $id_user);
     
                 $data = array(
-                    'nilai1'        => $nilai,
+                    'nilai1'        => $nilai / $hitung_pribadi,
                 );
 
                 // ===== input data ke tabel =====             
@@ -251,7 +256,7 @@ class Siswa extends CI_Controller {
                 $where = array('id_siswa' => $id_user);
     
                 $data = array(
-                    'nilai2'        => $nilai,
+                    'nilai2'        => $nilai / $hitung_sosial,
                 );
 
                 // ===== input data ke tabel =====             
@@ -260,7 +265,7 @@ class Siswa extends CI_Controller {
                 $where = array('id_siswa' => $id_user);
     
                 $data = array(
-                    'nilai3'        => $nilai,
+                    'nilai3'        => $nilai / $hitung_belajar,
                 );
 
                 // ===== input data ke tabel =====             
@@ -269,7 +274,7 @@ class Siswa extends CI_Controller {
                 $where = array('id_siswa' => $id_user);
     
                 $data = array(
-                    'nilai4'        => $nilai,
+                    'nilai4'        => $nilai / $hitung_karir,
                 );
 
                 // ===== input data ke tabel =====             

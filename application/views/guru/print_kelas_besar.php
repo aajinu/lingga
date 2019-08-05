@@ -1,3 +1,6 @@
+<script>
+window.onload = function() { window.print(); }
+</script>
 <table style="width:100%" border="1">
   <tr>
     <th colspan="5" align=center valign=center><center>RENCANA PELAKSANAAN LAYANAN (RPL)</center></th>
